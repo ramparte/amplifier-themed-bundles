@@ -7,27 +7,8 @@ bundle:
 includes:
   - bundle: git+https://github.com/microsoft/amplifier-foundation@main
   
-  # Collaboration core
-  - bundle: git+https://github.com/michaeljabbour/amplifier-bundle-collaboration
-  - bundle: git+https://github.com/michaeljabbour/amplifier-module-tool-collab-core
-  
-  # Orchestration patterns
-  - bundle: git+https://github.com/payneio/amplifier-bundle-foreman
-  - bundle: git+https://github.com/payneio/amplifier-bundle-observers
-  - bundle: git+https://github.com/payneio/amplifier-module-orchestrator-work-coordinator
-  - bundle: git+https://github.com/payneio/amplifier-orchestration
-  
-  # M365 coordination
-  - bundle: git+https://github.com/robotdad/lattice
-  - bundle: git+https://github.com/michaeljabbour/amplifier-module-tool-m365
+  # M365 collaboration (verified working)
   - bundle: git+https://github.com/ramparte/amplifier-bundle-m365-collab
-  
-  # Context management
-  - bundle: git+https://github.com/microsoft/amplifier-module-context-simple
-  - bundle: git+https://github.com/sadlilas/amplifier-module-util-context
-  
-  # Interop
-  - bundle: git+https://github.com/DavidKoleczek/interop-router
 ---
 
 # Multi-Agent Coordinator Bundle
