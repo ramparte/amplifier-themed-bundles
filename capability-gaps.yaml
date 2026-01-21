@@ -1,0 +1,841 @@
+# Amplifier Ecosystem Capability Gaps Analysis
+# Generated: 2026-01-21
+# Purpose: Identify missing capabilities and which bundles would benefit
+
+metadata:
+  total_gaps_identified: 45
+  priority_distribution:
+    critical: 8
+    high: 15
+    medium: 14
+    low: 8
+  estimated_ecosystem_coverage: "70%"
+  notes: "The Amplifier ecosystem is strong on AI/agent patterns but has gaps in traditional dev tooling"
+
+# =============================================================================
+# CRITICAL GAPS - High impact, frequently requested
+# =============================================================================
+critical_gaps:
+
+  - id: GAP-001
+    name: Database Interaction Tools
+    description: |
+      No modules exist for interacting with databases (SQL, NoSQL, graph).
+      This is a fundamental capability gap for any data-intensive application.
+    missing_capabilities:
+      - SQL query execution (PostgreSQL, MySQL, SQLite)
+      - NoSQL interaction (MongoDB, Redis, DynamoDB)
+      - Graph databases (Neo4j, Neptune)
+      - Schema exploration and visualization
+      - Query optimization suggestions
+      - Migration management
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - researcher
+      - autonomous-agent
+      - information-worker
+    potential_implementations:
+      - amplifier-module-tool-sql
+      - amplifier-module-tool-mongodb
+      - amplifier-module-tool-redis
+    priority: critical
+    effort: medium
+    notes: "SQLite is partially covered by local-first storage, but no query interface"
+
+  - id: GAP-002
+    name: Cloud Resource Management
+    description: |
+      No modules for managing cloud infrastructure (AWS, Azure, GCP).
+      Critical for DevOps and infrastructure-as-code workflows.
+    missing_capabilities:
+      - AWS SDK integration (EC2, S3, Lambda, etc.)
+      - Azure Resource Manager
+      - GCP APIs
+      - Terraform/Pulumi integration
+      - Cost analysis and optimization
+      - Infrastructure visualization
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - security-analyst
+      - autonomous-agent
+      - project-manager
+    potential_implementations:
+      - amplifier-module-tool-aws
+      - amplifier-module-tool-azure
+      - amplifier-module-tool-terraform
+    priority: critical
+    effort: high
+    notes: "deployotron (ramparte) has AWS ECS, but very narrow scope"
+
+  - id: GAP-003
+    name: CI/CD Pipeline Management
+    description: |
+      No modules for managing CI/CD pipelines, despite strong git integration.
+    missing_capabilities:
+      - GitHub Actions management
+      - Azure DevOps Pipelines
+      - Jenkins integration
+      - Pipeline debugging and logs
+      - Workflow visualization
+      - Deployment status tracking
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - project-manager
+      - evaluator
+      - security-analyst
+    potential_implementations:
+      - amplifier-module-tool-github-actions
+      - amplifier-module-tool-ado-pipelines
+    priority: critical
+    effort: medium
+    notes: "GitHub module exists but limited to issues/PRs, not Actions"
+
+  - id: GAP-004
+    name: Container Orchestration
+    description: |
+      No Kubernetes or container management capabilities.
+    missing_capabilities:
+      - Kubernetes API interaction
+      - Pod/deployment management
+      - Helm chart operations
+      - Docker Compose operations
+      - Container logs and debugging
+      - Resource monitoring
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - autonomous-agent
+      - security-analyst
+    potential_implementations:
+      - amplifier-module-tool-kubernetes
+      - amplifier-module-tool-docker
+    priority: critical
+    effort: high
+    notes: "Essential for modern deployment workflows"
+
+  - id: GAP-005
+    name: API Client Generation
+    description: |
+      No tools for generating or testing API clients from specs.
+    missing_capabilities:
+      - OpenAPI/Swagger parsing
+      - Client code generation
+      - API documentation generation
+      - Request/response validation
+      - Mock server generation
+      - API versioning management
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - evaluator
+      - content-creator
+    potential_implementations:
+      - amplifier-module-tool-openapi
+      - amplifier-module-tool-api-client
+    priority: critical
+    effort: medium
+
+  - id: GAP-006
+    name: Real-Time Monitoring Dashboards
+    description: |
+      No visualization or monitoring capabilities for running systems.
+    missing_capabilities:
+      - Metrics visualization (Prometheus, Grafana)
+      - Log aggregation (ELK stack)
+      - APM integration (DataDog, New Relic)
+      - Alerting configuration
+      - Custom dashboard creation
+      - SLO/SLI tracking
+    bundles_that_would_benefit:
+      - project-manager
+      - evaluator
+      - autonomous-agent
+      - security-analyst
+    potential_implementations:
+      - amplifier-module-tool-prometheus
+      - amplifier-module-tool-grafana
+    priority: critical
+    effort: high
+
+  - id: GAP-007
+    name: Code Refactoring Tools
+    description: |
+      LSP provides navigation but no automated refactoring capabilities.
+    missing_capabilities:
+      - Safe rename across codebase
+      - Extract method/function
+      - Move symbol to new file
+      - Change function signature
+      - Inline variable/function
+      - Convert between patterns
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - security-analyst
+    potential_implementations:
+      - amplifier-module-tool-refactor
+      - Extension to existing LSP bundles
+    priority: critical
+    effort: medium
+    notes: "LSP supports rename, but not exposed as tool"
+
+  - id: GAP-008
+    name: Test Generation
+    description: |
+      Strong test execution but no automated test generation.
+    missing_capabilities:
+      - Unit test generation from code
+      - Property-based test generation
+      - Mutation testing
+      - Coverage-driven test suggestions
+      - Test case generation from specs
+      - Regression test identification
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - evaluator
+      - spec-driven-builder
+    potential_implementations:
+      - amplifier-module-tool-testgen
+    priority: critical
+    effort: medium
+
+# =============================================================================
+# HIGH PRIORITY GAPS - Important for completeness
+# =============================================================================
+high_priority_gaps:
+
+  - id: GAP-009
+    name: Email Integration
+    description: |
+      M365 module exists but email-specific workflows are limited.
+    missing_capabilities:
+      - Email composition and sending
+      - Inbox triage and filtering
+      - Email template management
+      - Attachment handling
+      - Meeting scheduling from email
+      - Email analytics
+    bundles_that_would_benefit:
+      - information-worker
+      - project-manager
+      - autonomous-agent
+    potential_implementations:
+      - amplifier-module-tool-email
+      - Extension to M365 module
+    priority: high
+    effort: low
+
+  - id: GAP-010
+    name: Calendar Management
+    description: |
+      No calendar-specific capabilities despite M365 integration.
+    missing_capabilities:
+      - Calendar event creation/modification
+      - Availability checking
+      - Meeting scheduling optimization
+      - Recurring event management
+      - Cross-calendar coordination
+      - Time zone handling
+    bundles_that_would_benefit:
+      - information-worker
+      - project-manager
+    potential_implementations:
+      - amplifier-module-tool-calendar
+    priority: high
+    effort: low
+
+  - id: GAP-011
+    name: Diagramming and Visualization
+    description: |
+      No tools for creating or editing diagrams programmatically.
+    missing_capabilities:
+      - Mermaid/PlantUML generation
+      - Architecture diagram creation
+      - Flowchart generation
+      - Entity-relationship diagrams
+      - Sequence diagrams
+      - Mind maps
+    bundles_that_would_benefit:
+      - designer
+      - full-stack-developer
+      - content-creator
+      - spec-driven-builder
+    potential_implementations:
+      - amplifier-module-tool-diagrams
+      - amplifier-module-tool-mermaid
+    priority: high
+    effort: low
+
+  - id: GAP-012
+    name: Data Science / ML Workflows
+    description: |
+      No support for data science or machine learning workflows.
+    missing_capabilities:
+      - Jupyter notebook integration
+      - Pandas/DataFrame operations
+      - Model training management
+      - Experiment tracking (MLflow, W&B)
+      - Dataset exploration
+      - Feature engineering assistance
+    bundles_that_would_benefit:
+      - researcher
+      - evaluator
+      - autonomous-agent
+    potential_implementations:
+      - amplifier-module-tool-jupyter
+      - amplifier-module-tool-mlflow
+      - amplifier-bundle-data-scientist
+    priority: high
+    effort: high
+    notes: "Would require new archetype bundle"
+
+  - id: GAP-013
+    name: Mobile Development Support
+    description: |
+      No mobile-specific development capabilities.
+    missing_capabilities:
+      - React Native / Flutter tooling
+      - iOS/Android build management
+      - App store deployment
+      - Mobile testing (Detox, Appium)
+      - Device simulation
+      - Push notification testing
+    bundles_that_would_benefit:
+      - full-stack-developer
+    potential_implementations:
+      - amplifier-bundle-mobile-dev
+      - amplifier-module-tool-react-native
+    priority: high
+    effort: high
+
+  - id: GAP-014
+    name: Package Publishing
+    description: |
+      Can install packages but limited publishing capabilities.
+    missing_capabilities:
+      - npm publish workflow
+      - PyPI publishing
+      - NuGet packaging
+      - Version management
+      - Changelog generation
+      - Release automation
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - project-manager
+    potential_implementations:
+      - amplifier-module-tool-publish
+      - Extension to git-workflow
+    priority: high
+    effort: medium
+
+  - id: GAP-015
+    name: Dependency Analysis
+    description: |
+      No deep dependency analysis beyond basic security scanning.
+    missing_capabilities:
+      - Dependency graph visualization
+      - License compliance checking
+      - Outdated package detection
+      - Breaking change detection
+      - Circular dependency detection
+      - Bundle size analysis
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - security-analyst
+      - project-manager
+    potential_implementations:
+      - amplifier-module-tool-deps
+    priority: high
+    effort: medium
+
+  - id: GAP-016
+    name: Documentation Generation
+    description: |
+      doc-evergreen syncs docs but no generation from code.
+    missing_capabilities:
+      - API documentation generation (JSDoc, Sphinx)
+      - README template generation
+      - Architecture documentation
+      - Changelog generation
+      - Documentation coverage analysis
+      - Cross-reference validation
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - content-creator
+      - onboarding
+    potential_implementations:
+      - amplifier-module-tool-docgen
+    priority: high
+    effort: medium
+
+  - id: GAP-017
+    name: Performance Profiling
+    description: |
+      No code profiling or performance analysis capabilities.
+    missing_capabilities:
+      - CPU profiling
+      - Memory profiling
+      - Flame graph generation
+      - Bottleneck identification
+      - Performance regression detection
+      - Load testing integration
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - evaluator
+    potential_implementations:
+      - amplifier-module-tool-profiler
+    priority: high
+    effort: medium
+
+  - id: GAP-018
+    name: Environment Management
+    description: |
+      Limited environment/secrets management capabilities.
+    missing_capabilities:
+      - .env file management
+      - Secrets vault integration (Vault, AWS Secrets)
+      - Environment comparison
+      - Config validation
+      - Secret rotation
+      - Environment provisioning
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - security-analyst
+      - local-first
+    potential_implementations:
+      - amplifier-module-tool-env
+      - amplifier-module-tool-vault
+    priority: high
+    effort: medium
+
+  - id: GAP-019
+    name: Internationalization (i18n)
+    description: |
+      No localization or internationalization tooling.
+    missing_capabilities:
+      - Translation file management
+      - Missing translation detection
+      - Machine translation integration
+      - Locale testing
+      - RTL support validation
+      - Date/number format checking
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - content-creator
+    potential_implementations:
+      - amplifier-module-tool-i18n
+    priority: high
+    effort: medium
+
+  - id: GAP-020
+    name: Feature Flag Management
+    description: |
+      No feature flag or A/B testing capabilities.
+    missing_capabilities:
+      - Feature flag creation/management
+      - LaunchDarkly/Split integration
+      - Rollout percentage control
+      - Flag usage analysis
+      - Stale flag detection
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - project-manager
+    potential_implementations:
+      - amplifier-module-tool-feature-flags
+    priority: high
+    effort: low
+
+  - id: GAP-021
+    name: Accessibility Testing
+    description: |
+      Design bundle lacks accessibility validation.
+    missing_capabilities:
+      - WCAG compliance checking
+      - Screen reader testing
+      - Color contrast analysis
+      - Keyboard navigation testing
+      - ARIA validation
+    bundles_that_would_benefit:
+      - designer
+      - full-stack-developer
+      - evaluator
+    potential_implementations:
+      - amplifier-module-tool-a11y
+    priority: high
+    effort: medium
+
+  - id: GAP-022
+    name: Browser Automation
+    description: |
+      No browser automation for testing or scraping.
+    missing_capabilities:
+      - Playwright/Puppeteer integration
+      - E2E test execution
+      - Screenshot comparison
+      - Browser-based scraping
+      - Visual regression testing
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - evaluator
+      - researcher
+    potential_implementations:
+      - amplifier-module-tool-playwright
+    priority: high
+    effort: medium
+
+  - id: GAP-023
+    name: Queue/Message Systems
+    description: |
+      No message queue or event streaming support.
+    missing_capabilities:
+      - RabbitMQ/SQS integration
+      - Kafka consumer/producer
+      - Event bus operations
+      - Dead letter queue handling
+      - Message tracing
+    bundles_that_would_benefit:
+      - full-stack-developer
+      - autonomous-agent
+      - multi-agent-coordinator
+    potential_implementations:
+      - amplifier-module-tool-messaging
+    priority: high
+    effort: medium
+
+# =============================================================================
+# MEDIUM PRIORITY GAPS - Nice to have
+# =============================================================================
+medium_priority_gaps:
+
+  - id: GAP-024
+    name: Design Token Management
+    description: "No design token export/import capabilities"
+    bundles_that_would_benefit: [designer]
+    priority: medium
+    effort: low
+
+  - id: GAP-025
+    name: Figma Integration
+    description: "No Figma API integration for design workflows"
+    bundles_that_would_benefit: [designer, content-creator]
+    priority: medium
+    effort: medium
+
+  - id: GAP-026
+    name: Video Processing
+    description: "No video editing or processing capabilities"
+    bundles_that_would_benefit: [content-creator, voice-interface]
+    priority: medium
+    effort: high
+
+  - id: GAP-027
+    name: PDF Manipulation
+    description: "Limited PDF handling beyond basic reading"
+    bundles_that_would_benefit: [researcher, content-creator, information-worker]
+    priority: medium
+    effort: medium
+
+  - id: GAP-028
+    name: Spreadsheet Operations
+    description: "No direct Excel/Google Sheets manipulation"
+    bundles_that_would_benefit: [information-worker, researcher]
+    priority: medium
+    effort: medium
+
+  - id: GAP-029
+    name: CRM Integration
+    description: "No Salesforce/HubSpot integration"
+    bundles_that_would_benefit: [information-worker]
+    priority: medium
+    effort: medium
+
+  - id: GAP-030
+    name: Time Tracking
+    description: "No Toggl/Harvest integration for time management"
+    bundles_that_would_benefit: [project-manager]
+    priority: medium
+    effort: low
+
+  - id: GAP-031
+    name: Invoice/Billing
+    description: "No Stripe/invoice generation capabilities"
+    bundles_that_would_benefit: [information-worker]
+    priority: medium
+    effort: medium
+
+  - id: GAP-032
+    name: Social Media Management
+    description: "No Twitter/LinkedIn posting capabilities"
+    bundles_that_would_benefit: [content-creator]
+    priority: medium
+    effort: low
+
+  - id: GAP-033
+    name: RSS/Feed Processing
+    description: "No RSS feed parsing or monitoring"
+    bundles_that_would_benefit: [researcher, information-worker]
+    priority: medium
+    effort: low
+
+  - id: GAP-034
+    name: OCR Capabilities
+    description: "No optical character recognition for images"
+    bundles_that_would_benefit: [researcher, content-creator]
+    priority: medium
+    effort: medium
+
+  - id: GAP-035
+    name: Geolocation Services
+    description: "No mapping or location-based capabilities"
+    bundles_that_would_benefit: [researcher]
+    priority: medium
+    effort: medium
+
+  - id: GAP-036
+    name: Hardware Integration
+    description: "No IoT or hardware device communication"
+    bundles_that_would_benefit: [local-first]
+    priority: medium
+    effort: high
+    notes: "robotdad has extensive embedded background - potential contributor"
+
+  - id: GAP-037
+    name: Formal Verification
+    description: "No theorem proving or formal methods tooling"
+    bundles_that_would_benefit: [security-analyst, spec-driven-builder]
+    priority: medium
+    effort: high
+
+# =============================================================================
+# LOW PRIORITY GAPS - Edge cases, specialized needs
+# =============================================================================
+low_priority_gaps:
+
+  - id: GAP-038
+    name: Game Development
+    description: "No Unity/Godot/game engine support"
+    bundles_that_would_benefit: [full-stack-developer]
+    priority: low
+    effort: high
+
+  - id: GAP-039
+    name: Blockchain/Web3
+    description: "No blockchain or smart contract tooling"
+    bundles_that_would_benefit: [full-stack-developer, security-analyst]
+    priority: low
+    effort: high
+
+  - id: GAP-040
+    name: 3D Modeling
+    description: "No Blender/3D tooling integration"
+    bundles_that_would_benefit: [designer, content-creator]
+    priority: low
+    effort: high
+
+  - id: GAP-041
+    name: Music/Audio Production
+    description: "No DAW or music production capabilities"
+    bundles_that_would_benefit: [content-creator]
+    priority: low
+    effort: high
+
+  - id: GAP-042
+    name: Scientific Computing
+    description: "No MATLAB/R/scientific computing integration"
+    bundles_that_would_benefit: [researcher]
+    priority: low
+    effort: high
+
+  - id: GAP-043
+    name: Legal Document Analysis
+    description: "No contract or legal document specialized tooling"
+    bundles_that_would_benefit: [researcher]
+    priority: low
+    effort: medium
+
+  - id: GAP-044
+    name: Medical/Healthcare
+    description: "No HIPAA-aware or healthcare-specific tooling"
+    bundles_that_would_benefit: [security-analyst, local-first]
+    priority: low
+    effort: high
+
+  - id: GAP-045
+    name: AR/VR Development
+    description: "No XR development capabilities"
+    bundles_that_would_benefit: [designer]
+    priority: low
+    effort: high
+
+# =============================================================================
+# BUNDLE-SPECIFIC GAP ANALYSIS
+# =============================================================================
+bundle_gap_summary:
+
+  full-stack-developer:
+    current_coverage: "75%"
+    critical_gaps: [GAP-001, GAP-002, GAP-003, GAP-004, GAP-007, GAP-008]
+    high_gaps: [GAP-013, GAP-014, GAP-015, GAP-016, GAP-017]
+    recommendation: "Prioritize database and cloud tooling"
+
+  researcher:
+    current_coverage: "80%"
+    critical_gaps: [GAP-001]
+    high_gaps: [GAP-012, GAP-022]
+    recommendation: "Strong core, add data science capabilities"
+
+  designer:
+    current_coverage: "85%"
+    critical_gaps: []
+    high_gaps: [GAP-011, GAP-021, GAP-025]
+    recommendation: "Add diagramming and Figma integration"
+
+  evaluator:
+    current_coverage: "90%"
+    critical_gaps: [GAP-008]
+    high_gaps: [GAP-017, GAP-021, GAP-022]
+    recommendation: "Strong foundation, add test generation"
+
+  information-worker:
+    current_coverage: "70%"
+    critical_gaps: [GAP-001]
+    high_gaps: [GAP-009, GAP-010]
+    recommendation: "Complete M365 coverage with email/calendar"
+
+  autonomous-agent:
+    current_coverage: "85%"
+    critical_gaps: [GAP-001, GAP-002, GAP-004]
+    high_gaps: [GAP-023]
+    recommendation: "Add infrastructure interaction capabilities"
+
+  voice-interface:
+    current_coverage: "80%"
+    critical_gaps: []
+    high_gaps: []
+    recommendation: "Good coverage, consider wake word detection"
+
+  security-analyst:
+    current_coverage: "60%"
+    critical_gaps: [GAP-002, GAP-003, GAP-004]
+    high_gaps: [GAP-015, GAP-018]
+    recommendation: "Expand beyond CodeQL to full DevSecOps"
+
+  content-creator:
+    current_coverage: "80%"
+    critical_gaps: []
+    high_gaps: [GAP-011, GAP-016, GAP-032]
+    recommendation: "Add diagramming and social media"
+
+  multi-agent-coordinator:
+    current_coverage: "85%"
+    critical_gaps: []
+    high_gaps: [GAP-023]
+    recommendation: "Add message queue support for scale"
+
+  local-first:
+    current_coverage: "75%"
+    critical_gaps: [GAP-001]
+    high_gaps: [GAP-018]
+    recommendation: "Add local database and env management"
+
+  project-manager:
+    current_coverage: "65%"
+    critical_gaps: [GAP-003, GAP-006]
+    high_gaps: [GAP-010, GAP-014, GAP-020, GAP-030]
+    recommendation: "Expand DevOps and workflow visibility"
+
+  onboarding:
+    current_coverage: "90%"
+    critical_gaps: []
+    high_gaps: [GAP-016]
+    recommendation: "Strong foundation, add doc generation"
+
+  spec-driven-builder:
+    current_coverage: "85%"
+    critical_gaps: [GAP-008]
+    high_gaps: []
+    recommendation: "Add test generation from specs"
+
+  mcp-bridge:
+    current_coverage: "80%"
+    critical_gaps: []
+    high_gaps: []
+    recommendation: "Good coverage, expand server catalog"
+
+# =============================================================================
+# RECOMMENDED NEXT MODULES TO BUILD
+# =============================================================================
+recommended_builds:
+  
+  immediate:
+    - name: amplifier-module-tool-sql
+      addresses: [GAP-001]
+      effort: medium
+      impact: "Unlocks 6+ bundles"
+      
+    - name: amplifier-module-tool-diagrams
+      addresses: [GAP-011]
+      effort: low
+      impact: "Quick win for 4 bundles"
+      
+    - name: amplifier-module-tool-github-actions
+      addresses: [GAP-003]
+      effort: medium
+      impact: "Completes GitHub story"
+
+  short_term:
+    - name: amplifier-module-tool-aws
+      addresses: [GAP-002]
+      effort: high
+      impact: "Enterprise enablement"
+      
+    - name: amplifier-module-tool-kubernetes
+      addresses: [GAP-004]
+      effort: high
+      impact: "Modern deployment workflows"
+      
+    - name: amplifier-module-tool-testgen
+      addresses: [GAP-008]
+      effort: medium
+      impact: "TDD workflow completion"
+
+  medium_term:
+    - name: amplifier-bundle-data-scientist
+      addresses: [GAP-012]
+      effort: high
+      impact: "New user archetype"
+      
+    - name: amplifier-module-tool-playwright
+      addresses: [GAP-022]
+      effort: medium
+      impact: "E2E testing story"
+
+# =============================================================================
+# ECOSYSTEM HEALTH METRICS
+# =============================================================================
+ecosystem_health:
+  
+  strengths:
+    - "AI/agent patterns (memory, Sage, Foreman)"
+    - "Collaboration (M365, Slack)"
+    - "Code intelligence (LSP)"
+    - "Research workflows"
+    - "Design/UX tooling"
+    - "Git/GitHub integration"
+    - "Evaluation frameworks"
+    
+  weaknesses:
+    - "Database interaction"
+    - "Cloud infrastructure"
+    - "CI/CD integration"
+    - "Container orchestration"
+    - "Data science/ML"
+    - "Monitoring/observability"
+    
+  opportunities:
+    - "MCP ecosystem integration (rapid capability expansion)"
+    - "robotdad's embedded expertise (IoT/hardware)"
+    - "dluc's kernel-memory (RAG patterns)"
+    - "eval-recipes maturity (enterprise adoption)"
+    
+  threats:
+    - "MCP may commoditize tool modules"
+    - "Fragmentation across repos"
+    - "Alpha-heavy readiness distribution"

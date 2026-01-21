@@ -1,0 +1,793 @@
+# Themed Bundle Proposals for Amplifier Ecosystem
+# Generated: 2026-01-21
+# Purpose: Archetype bundles that compose existing ecosystem tools for specific user personas
+
+metadata:
+  generated: "2026-01-21"
+  status: "proposal - ready for review"
+  total_proposals: 15
+  source: "amplifier-ecosystem-inventory.yaml"
+
+# =============================================================================
+# BUNDLE PROPOSAL TEMPLATE
+# =============================================================================
+# Each bundle proposal includes:
+#   - name: Short identifier for the bundle
+#   - title: Human-friendly name
+#   - archetype: The user persona this serves
+#   - description: What this bundle enables
+#   - key_capabilities: Core features it provides
+#   - included_components: List of repos/modules to compose
+#   - readiness: How ready is this to build (based on component maturity)
+#   - complexity: Low/Medium/High - how much integration work needed
+#   - notes: Additional considerations
+
+# =============================================================================
+# TIER 1: HIGH-VALUE, READY TO BUILD
+# Components are mature (beta+), clear use cases, high demand
+# =============================================================================
+
+proposals:
+
+  # ---------------------------------------------------------------------------
+  # 1. FULL-STACK DEVELOPER
+  # ---------------------------------------------------------------------------
+  - name: full-stack-developer
+    title: "Full-Stack Developer Bundle"
+    archetype: "Developer"
+    description: |
+      Comprehensive development environment for professional developers working
+      across multiple languages. Provides code intelligence, quality tools,
+      git workflows, and testing capabilities. Think of this as "VS Code in
+      your terminal" with AI superpowers.
+    
+    key_capabilities:
+      - Semantic code intelligence (LSP for TypeScript, Python)
+      - Code quality and linting automation
+      - Git workflow automation (commits, PRs, branch management)
+      - Testing and benchmarking tools
+      - Session-aware memory for project context
+      - File operations with safety guardrails
+    
+    included_components:
+      core:
+        - microsoft/amplifier-core
+        - microsoft/amplifier-foundation
+        - microsoft/amplifier-module-tool-filesystem
+        - microsoft/amplifier-module-tool-skills
+      
+      typescript_dev:
+        - robotdad/amplifier-bundle-lsp-typescript
+        - robotdad/amplifier-bundle-ts-dev
+      
+      python_dev:
+        - amplifier-bundle-python-dev  # foundation bundle
+      
+      git_workflow:
+        - kenotron-ms/amplifier-git-workflow
+        - marklicata/amplifier-module-tool-github
+      
+      memory:
+        - michaeljabbour/amplifier-module-tool-memory
+        - michaeljabbour/amplifier-module-hooks-project-isolation
+      
+      testing:
+        - samueljklee/amplifier-bundle-smoke-test
+        - DavidKoleczek/amplifier-app-benchmarks
+    
+    readiness: high
+    complexity: medium
+    estimated_effort: "2-3 days"
+    notes: |
+      Most components are beta-ready. Key integration points:
+      - LSP bundles need unified configuration
+      - Memory system should be project-scoped
+      - Git workflow should integrate with GitHub issues
+
+  # ---------------------------------------------------------------------------
+  # 2. RESEARCHER
+  # ---------------------------------------------------------------------------
+  - name: researcher
+    title: "Deep Researcher Bundle"
+    archetype: "Researcher / Analyst"
+    description: |
+      AI-powered research assistant for conducting comprehensive investigations.
+      Combines web research, multi-provider synthesis, long-context processing,
+      and persistent memory to handle complex research tasks that span sessions.
+    
+    key_capabilities:
+      - Automated multi-source web research
+      - Multi-provider synthesis (OpenAI + Anthropic perspectives)
+      - Long context processing (RLM for large documents)
+      - Cross-session memory for research continuity
+      - Strategic advisor for research direction
+      - Citation and source tracking
+    
+    included_components:
+      research:
+        - michaeljabbour/amplifier-module-deepresearch
+        - robotdad/amplifier-bundle-deepresearch
+        - michaeljabbour/amplifier-module-tool-rlm
+      
+      memory:
+        - michaeljabbour/amplifier-module-tool-memory
+        - michaeljabbour/amplifier-bundle-memory
+        - michaeljabbour/amplifier-module-decisionmemory
+      
+      strategy:
+        - michaeljabbour/amplifier-module-tool-sage
+        - michaeljabbour/amplifier-bundle-sage
+      
+      providers:
+        - michaeljabbour/amplifier-module-provider-anthropic
+        - michaeljabbour/amplifier-module-provider-openai
+      
+      evaluation:
+        - microsoft/eval-recipes
+    
+    readiness: high
+    complexity: low
+    estimated_effort: "1-2 days"
+    notes: |
+      Strong component maturity. MJ's deep research suite is well-integrated.
+      Sage advisor adds strategic planning layer. Consider adding:
+      - PDF/document extraction tools
+      - Export to markdown/report formats
+
+  # ---------------------------------------------------------------------------
+  # 3. INFORMATION WORKER
+  # ---------------------------------------------------------------------------
+  - name: information-worker
+    title: "Information Worker Bundle"
+    archetype: "Knowledge Worker / Business Professional"
+    description: |
+      Enterprise productivity suite for knowledge workers. Integrates with
+      Microsoft 365, Slack, and other collaboration platforms. Manages
+      notifications, coordinates with team members, and helps triage
+      information overload.
+    
+    key_capabilities:
+      - M365 integration (Teams, Outlook, SharePoint)
+      - Slack channel management
+      - Intelligent notification filtering
+      - Cross-platform task coordination
+      - Team activity tracking
+      - Standup report generation
+    
+    included_components:
+      collaboration_core:
+        - michaeljabbour/amplifier-bundle-collaboration
+        - michaeljabbour/amplifier-module-tool-collab-core
+      
+      m365:
+        - michaeljabbour/amplifier-module-tool-m365
+        - robotdad/lattice
+        - robotdad/amplifier-m365-platform
+      
+      slack:
+        - michaeljabbour/amplifier-module-tool-slack
+      
+      productivity:
+        - bkrabach/amplifier-bundle-attention-firewall
+        - kenotron-ms/standup-helper
+        - marklicata/made-activity-tracker
+      
+      memory:
+        - michaeljabbour/amplifier-module-tool-memory
+    
+    readiness: high
+    complexity: medium
+    estimated_effort: "2-3 days"
+    notes: |
+      M365 and Slack modules are beta-ready. Google Workspace coming.
+      Key consideration: OAuth/credential management across platforms.
+      Attention firewall is Windows-only currently.
+
+  # ---------------------------------------------------------------------------
+  # 4. DESIGNER
+  # ---------------------------------------------------------------------------
+  - name: designer
+    title: "Design Intelligence Bundle"
+    archetype: "Product Designer / UX Researcher"
+    description: |
+      Design-focused toolkit for product designers and UX researchers.
+      Provides user interview capabilities, design system exploration,
+      vision analysis, and design-to-code workflows.
+    
+    key_capabilities:
+      - Progressive user interviewing (Discovery)
+      - Design system exploration and refinement
+      - Vision/image analysis (GPT-4V)
+      - Design principles documentation
+      - User research synthesis
+      - Presentation generation
+    
+    included_components:
+      discovery:
+        - anderlpz/amplifier-bundle-discovery
+        - anderlpz/discovery-live-demo
+      
+      design:
+        - anderlpz/amplifier-bundle-design-intelligence
+        - anderlpz/amplifier-embody
+      
+      vision:
+        - anderlpz/amplifier-app-vision
+      
+      presentation:
+        - cpark4x/deckgen
+        - kenotron-ms/amplifier-presentation
+      
+      memory:
+        - michaeljabbour/amplifier-module-tool-memory
+    
+    readiness: high
+    complexity: low
+    estimated_effort: "1-2 days"
+    notes: |
+      Alex Lopez's design suite is mature and well-documented.
+      Discovery bundle is production-quality. Consider adding:
+      - Figma/design tool integrations
+      - Component library generators
+
+  # ---------------------------------------------------------------------------
+  # 5. TESTER / EVALUATOR
+  # ---------------------------------------------------------------------------
+  - name: evaluator
+    title: "AI Evaluator Bundle"
+    archetype: "QA Engineer / AI Evaluator"
+    description: |
+      Comprehensive testing and evaluation toolkit for validating AI systems,
+      running benchmarks, and ensuring quality. Includes both functional
+      testing and AI-specific evaluation capabilities.
+    
+    key_capabilities:
+      - AI agent benchmarking
+      - Session analysis and debugging
+      - Smoke testing automation
+      - Multi-trial consistency evaluation
+      - Performance metrics collection
+      - Evaluation recipe execution
+    
+    included_components:
+      evaluation:
+        - microsoft/eval-recipes
+        - DavidKoleczek/amplifier-module-tool-eval-recipes
+      
+      benchmarking:
+        - DavidKoleczek/amplifier-app-benchmarks
+      
+      analysis:
+        - DavidKoleczek/amplifier-app-session-analyzer
+      
+      testing:
+        - samueljklee/amplifier-bundle-smoke-test
+      
+      metrics:
+        - marklicata/amplifier-module-tool-stats
+        - marklicata/amplifier-module-tool-iteration-tracker
+    
+    readiness: high
+    complexity: low
+    estimated_effort: "1-2 days"
+    notes: |
+      eval-recipes is the most mature component (beta with releases).
+      David K's evaluation tooling complements well.
+      Consider adding: CI/CD integration recipes.
+
+# =============================================================================
+# TIER 2: MEDIUM-VALUE, SOME INTEGRATION NEEDED
+# Components exist but need more integration work
+# =============================================================================
+
+  # ---------------------------------------------------------------------------
+  # 6. AUTONOMOUS AGENT
+  # ---------------------------------------------------------------------------
+  - name: autonomous-agent
+    title: "Autonomous Agent Bundle"
+    archetype: "Power User / Automation Enthusiast"
+    description: |
+      Long-running autonomous execution for complex tasks. Combines strategic
+      planning (Sage), worker coordination (Foreman), and memory persistence
+      to handle multi-step work with minimal human intervention.
+    
+    key_capabilities:
+      - Long-running autonomous execution
+      - Strategic planning with Gemini/OpenAI counsel
+      - Worker pool orchestration (Foreman pattern)
+      - Decision memory and tracking
+      - Progress monitoring and stuck detection
+      - Transparent execution logs
+    
+    included_components:
+      strategy:
+        - michaeljabbour/amplifier-bundle-sage
+        - michaeljabbour/amplifier-module-tool-sage
+        - michaeljabbour/amplifier-module-tool-sage-eval
+      
+      orchestration:
+        - payneio/amplifier-bundle-foreman
+        - payneio/amplifier-module-orchestrator-work-coordinator
+        - payneio/amplifier-orchestration
+      
+      memory:
+        - michaeljabbour/amplifier-module-decisionmemory
+        - michaeljabbour/amplifier-module-tool-memory
+      
+      monitoring:
+        - michaeljabbour/amplifier-module-hooks-sessionindicator
+        - marklicata/amplifier-module-tool-iteration-tracker
+      
+      reference:
+        - cpark4x/workspaces3  # CodeAct architecture reference
+    
+    readiness: medium
+    complexity: high
+    estimated_effort: "1 week"
+    notes: |
+      Sage + Foreman is a powerful combination but needs careful integration.
+      workspaces3 provides architectural patterns but is separate codebase.
+      Key risks: Stuck detection, graceful failure handling.
+
+  # ---------------------------------------------------------------------------
+  # 7. VOICE INTERFACE
+  # ---------------------------------------------------------------------------
+  - name: voice-interface
+    title: "Voice Interface Bundle"
+    archetype: "Hands-Free User / Accessibility"
+    description: |
+      Voice-first interaction with Amplifier. Supports speech-to-text input,
+      text-to-speech output, and real-time voice conversations with OpenAI
+      Realtime API.
+    
+    key_capabilities:
+      - Speech-to-text input (whisper.cpp - local)
+      - Voice application framework
+      - OpenAI Realtime API for conversations
+      - Audio segmentation and processing
+      - Hands-free operation
+    
+    included_components:
+      voice_app:
+        - robotdad/amplifier-app-voice
+      
+      stt:
+        - sadlilas/amplifier-module-tool-stt-whispercpp
+      
+      providers:
+        - robotdad/amplifier-module-provider-openai-realtime
+      
+      audio:
+        - samueljklee/local-audio-segmenter
+      
+      reference:
+        - cpark4x/ridecast  # Audio generation patterns
+    
+    readiness: medium
+    complexity: medium
+    estimated_effort: "3-5 days"
+    notes: |
+      whisper.cpp provides privacy-first local STT.
+      OpenAI Realtime is cutting-edge but API still evolving.
+      Consider: TTS options, wake word detection.
+
+  # ---------------------------------------------------------------------------
+  # 8. SECURITY ANALYST
+  # ---------------------------------------------------------------------------
+  - name: security-analyst
+    title: "Security Analyst Bundle"
+    archetype: "Security Engineer / DevSecOps"
+    description: |
+      Security-focused toolkit for code analysis, vulnerability scanning,
+      and security review workflows. Integrates CodeQL and other static
+      analysis tools with AI-powered remediation suggestions.
+    
+    key_capabilities:
+      - CodeQL security scanning
+      - Code vulnerability analysis
+      - GitHub security integration
+      - Remediation suggestions
+      - Security review workflows
+    
+    included_components:
+      security:
+        - marklicata/amplifier-module-tool-codeql
+      
+      github:
+        - marklicata/amplifier-module-tool-github
+        - marklicata/amplifier-bundle-issues
+      
+      code_intelligence:
+        - robotdad/amplifier-bundle-lsp-typescript
+        - amplifier-bundle-python-dev
+      
+      memory:
+        - michaeljabbour/amplifier-module-tool-memory
+    
+    readiness: medium
+    complexity: medium
+    estimated_effort: "3-5 days"
+    notes: |
+      CodeQL module is alpha - needs more testing.
+      Could benefit from: SAST/DAST integrations, CVE databases.
+      Consider: Compliance checking, audit trail generation.
+
+  # ---------------------------------------------------------------------------
+  # 9. CONTENT CREATOR
+  # ---------------------------------------------------------------------------
+  - name: content-creator
+    title: "Content Creator Bundle"
+    archetype: "Technical Writer / Content Marketing"
+    description: |
+      Content creation toolkit for blogs, presentations, documentation,
+      and multimedia. AI-powered writing with style awareness and
+      automated documentation sync.
+    
+    key_capabilities:
+      - Blog post generation with style extraction
+      - Presentation slide generation
+      - Documentation sync with code
+      - Audio content generation
+      - Style-aware writing
+    
+    included_components:
+      blog:
+        - robotdad/amplifier-bundle-blog-creator
+      
+      presentations:
+        - cpark4x/deckgen
+        - kenotron-ms/amplifier-presentation
+      
+      documentation:
+        - momuno/doc-evergreen
+        - microsoft/amplifier-docs
+      
+      audio:
+        - cpark4x/ridecast
+      
+      memory:
+        - michaeljabbour/amplifier-module-tool-memory
+    
+    readiness: medium
+    complexity: low
+    estimated_effort: "2-3 days"
+    notes: |
+      doc-evergreen is particularly valuable for keeping docs fresh.
+      Blog creator extracts style from examples - powerful for consistency.
+      Consider: Social media integrations, SEO optimization.
+
+  # ---------------------------------------------------------------------------
+  # 10. MULTI-AGENT COORDINATOR
+  # ---------------------------------------------------------------------------
+  - name: multi-agent-coordinator
+    title: "Multi-Agent Coordinator Bundle"
+    archetype: "AI Architect / Platform Builder"
+    description: |
+      Orchestrate multiple AI agents working together. Enables complex
+      workflows where specialized agents collaborate via shared context,
+      message passing, and coordinated execution.
+    
+    key_capabilities:
+      - Multi-instance AI collaboration
+      - Foreman/worker orchestration patterns
+      - M365-based agent coordination
+      - Shared context management
+      - Observer patterns for monitoring
+    
+    included_components:
+      collaboration:
+        - michaeljabbour/amplifier-bundle-collaboration
+        - michaeljabbour/amplifier-module-tool-collab-core
+      
+      orchestration:
+        - payneio/amplifier-bundle-foreman
+        - payneio/amplifier-bundle-observers
+        - payneio/amplifier-module-orchestrator-work-coordinator
+      
+      m365:
+        - robotdad/lattice
+        - michaeljabbour/amplifier-module-tool-m365
+      
+      context:
+        - microsoft/amplifier-module-context-simple
+        - sadlilas/amplifier-module-util-context
+      
+      interop:
+        - DavidKoleczek/interop-router
+    
+    readiness: medium
+    complexity: high
+    estimated_effort: "1 week"
+    notes: |
+      Complex integration - many moving parts.
+      interop-router (7 stars) is key for multi-provider scenarios.
+      Consider: Message queue integrations, state persistence.
+
+  # ---------------------------------------------------------------------------
+  # 11. LOCAL-FIRST / PRIVACY
+  # ---------------------------------------------------------------------------
+  - name: local-first
+    title: "Local-First Privacy Bundle"
+    archetype: "Privacy-Conscious User / Air-Gapped Environments"
+    description: |
+      Run Amplifier entirely locally with no cloud dependencies.
+      Uses Foundry Local for LLM inference, SQLite for storage,
+      and whisper.cpp for speech-to-text.
+    
+    key_capabilities:
+      - Local LLM inference (Foundry Local)
+      - SQLite-based local storage
+      - Local speech-to-text (whisper.cpp)
+      - No external API dependencies
+      - Hardware-optimized performance
+    
+    included_components:
+      provider:
+        - samueljklee/amplifier-module-provider-foundry-local
+      
+      storage:
+        - sadlilas/amplifier-module-storage-localfirst
+      
+      stt:
+        - sadlilas/amplifier-module-tool-stt-whispercpp
+      
+      context:
+        - sadlilas/amplifier-module-util-context
+        - microsoft/amplifier-module-context-simple
+      
+      reference:
+        - bkrabach/webamp  # Browser-based local inference PoC
+    
+    readiness: medium
+    complexity: medium
+    estimated_effort: "3-5 days"
+    notes: |
+      Foundry Local is Microsoft's privacy-first local AI solution.
+      Hardware requirements vary - need clear documentation.
+      Consider: Model selection guidance, quantization options.
+
+# =============================================================================
+# TIER 3: EXPERIMENTAL / EMERGING
+# Innovative but components need more maturity
+# =============================================================================
+
+  # ---------------------------------------------------------------------------
+  # 12. PROJECT MANAGER
+  # ---------------------------------------------------------------------------
+  - name: project-manager
+    title: "Project Manager Bundle"
+    archetype: "Project Manager / Tech Lead"
+    description: |
+      Project and team coordination toolkit. Tracks tasks, monitors PRs,
+      generates standup reports, and helps manage multi-repo development
+      workflows.
+    
+    key_capabilities:
+      - PR monitoring and status
+      - Team activity tracking
+      - Standup report generation
+      - Task persistence (Beads)
+      - GitHub issue management
+      - Multi-repo coordination
+    
+    included_components:
+      git:
+        - kenotron-ms/amplifier-git-workflow
+        - kenotron-ms/pr-monitor
+        - marklicata/amplifier-module-tool-github
+        - marklicata/amplifier-bundle-issues
+      
+      team:
+        - kenotron-ms/standup-helper
+        - marklicata/made-activity-tracker
+      
+      tasks:
+        - robotdad/amplifier-bundle-beads
+      
+      memory:
+        - michaeljabbour/amplifier-module-tool-memory
+    
+    readiness: low
+    complexity: medium
+    estimated_effort: "1 week"
+    notes: |
+      Components exist but most are alpha.
+      Need unified view across GitHub, tasks, team activity.
+      Consider: Jira/Azure DevOps integrations.
+
+  # ---------------------------------------------------------------------------
+  # 13. ONBOARDING / TRAINING
+  # ---------------------------------------------------------------------------
+  - name: onboarding
+    title: "Onboarding & Training Bundle"
+    archetype: "New Team Member / Learner"
+    description: |
+      Guided onboarding experience for new Amplifier users. Provides
+      interactive tutorials, best practice guidance, and gradual
+      feature introduction.
+    
+    key_capabilities:
+      - Interactive onboarding workflows
+      - Best practice documentation
+      - Expert cookbook access
+      - Skill-based learning
+      - Presentation materials
+    
+    included_components:
+      onboarding:
+        - marklicata/amplifier-onboarding
+        - kenotron-ms/amplifier-setup
+      
+      documentation:
+        - bkrabach/amplifier-expert-cookbook
+        - DavidKoleczek/amplifier-expert-cookbook
+        - kenotron-ms/awesome-amplifier
+      
+      presentations:
+        - kenotron-ms/amplifier-presentation
+      
+      skills:
+        - microsoft/amplifier-module-tool-skills
+        - michaeljabbour/amplifier-modulebuilder-skill
+    
+    readiness: low
+    complexity: low
+    estimated_effort: "3-5 days"
+    notes: |
+      Mostly documentation/content aggregation.
+      awesome-amplifier is great starting point.
+      Need: Progressive disclosure, guided tours.
+
+  # ---------------------------------------------------------------------------
+  # 14. SPEC-DRIVEN BUILDER
+  # ---------------------------------------------------------------------------
+  - name: spec-driven-builder
+    title: "Spec-Driven Builder Bundle"
+    archetype: "Product Builder / Entrepreneur"
+    description: |
+      Build products from specifications using Chris Park's methodology.
+      Combines outcome-focused thinking, spec-driven development patterns,
+      and autonomous execution.
+    
+    key_capabilities:
+      - Specification authoring and refinement
+      - Outcome-focused development
+      - Autonomous task execution
+      - Progress transparency
+      - Iterative refinement
+    
+    included_components:
+      methodology:
+        - cpark4x/outcomist
+        - cpark4x/remember-twelve
+      
+      execution:
+        - cpark4x/workspaces3
+      
+      strategy:
+        - michaeljabbour/amplifier-bundle-sage
+      
+      memory:
+        - michaeljabbour/amplifier-module-decisionmemory
+    
+    readiness: low
+    complexity: high
+    estimated_effort: "1-2 weeks"
+    notes: |
+      Chris Park's repos demonstrate the methodology but need extraction
+      into reusable bundle patterns. workspaces3 CodeAct architecture
+      is sophisticated but standalone.
+
+  # ---------------------------------------------------------------------------
+  # 15. MCP BRIDGE
+  # ---------------------------------------------------------------------------
+  - name: mcp-bridge
+    title: "MCP Tool Bridge Bundle"
+    archetype: "Tool Integrator / Platform Extender"
+    description: |
+      Bridge to Model Context Protocol (MCP) ecosystem. Enables Amplifier
+      to use any MCP-compatible tool server, dramatically expanding
+      available capabilities.
+    
+    key_capabilities:
+      - MCP server connection
+      - Tool routing and dispatch
+      - Protocol translation
+      - Multi-server coordination
+      - Claude Code plugin compatibility
+    
+    included_components:
+      mcp:
+        - michaeljabbour/amplifier-module-tool-mcp
+        - robotdad/amplifier-module-tool-mcp
+        - marklicata/mcp-tool-router
+      
+      compatibility:
+        - robotdad/amplifier-bundle-plugin-compat
+      
+      reference:
+        - dluc/csharp-sdk  # MCP C# SDK
+    
+    readiness: low
+    complexity: medium
+    estimated_effort: "3-5 days"
+    notes: |
+      MCP ecosystem is exploding - this is strategic.
+      Multiple implementations exist - need consolidation.
+      Consider: MCP server discovery, configuration UI.
+
+# =============================================================================
+# SUMMARY & RECOMMENDATIONS
+# =============================================================================
+
+recommendations:
+  
+  immediate_builds:
+    description: "Start here - high value, low risk"
+    bundles:
+      - researcher        # Most mature components, clear use case
+      - designer          # Alex's suite is production-quality
+      - evaluator         # eval-recipes is most mature in ecosystem
+  
+  quick_wins:
+    description: "Can build in a week with good ROI"
+    bundles:
+      - full-stack-developer
+      - information-worker
+      - content-creator
+  
+  strategic_investments:
+    description: "Higher effort but differentiated value"
+    bundles:
+      - autonomous-agent
+      - multi-agent-coordinator
+      - local-first
+  
+  watch_list:
+    description: "Interesting but need more component maturity"
+    bundles:
+      - voice-interface
+      - security-analyst
+      - spec-driven-builder
+      - mcp-bridge
+
+build_order_suggestion:
+  phase_1:
+    - researcher
+    - designer
+    - evaluator
+  phase_2:
+    - full-stack-developer
+    - information-worker
+  phase_3:
+    - autonomous-agent
+    - content-creator
+    - local-first
+
+cross_bundle_synergies:
+  - pair: [researcher, autonomous-agent]
+    synergy: "Long-running research with Sage strategic guidance"
+  
+  - pair: [designer, information-worker]
+    synergy: "User research findings shared via M365 collaboration"
+  
+  - pair: [full-stack-developer, evaluator]
+    synergy: "TDD workflow with integrated benchmarking"
+  
+  - pair: [content-creator, designer]
+    synergy: "Design → documentation → presentation pipeline"
+
+gap_analysis:
+  missing_capabilities:
+    - "Database interaction tools (SQL, NoSQL)"
+    - "Cloud resource management (AWS, Azure, GCP)"
+    - "Container/Kubernetes orchestration"
+    - "Real-time monitoring dashboards"
+    - "Formal verification tools"
+  
+  underdeveloped_areas:
+    - "Security tooling (only CodeQL)"
+    - "Mobile development support"
+    - "Data science / ML workflows"
+    - "CI/CD pipeline management"
+

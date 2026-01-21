@@ -1,0 +1,2248 @@
+# Amplifier Ecosystem Tool & Project Inventory
+# Generated: 2026-01-21
+# Purpose: Comprehensive catalog of all Amplifier ecosystem tools, modules, bundles, and applications
+
+metadata:
+  generated: "2026-01-21"
+  total_contributors: 15
+  total_projects: 150+
+  ecosystem_status: "Early Preview / Research Demonstrator"
+
+# =============================================================================
+# MICROSOFT CORE REPOSITORIES
+# =============================================================================
+microsoft_core:
+  
+  - name: amplifier
+    url: https://github.com/microsoft/amplifier
+    owner: microsoft
+    description: "Main entry point and distribution package for Amplifier. AI-powered modular development assistant with CLI interface."
+    category: core
+    type: distribution
+    key_features:
+      - One-command installation via uv tool install
+      - Interactive chat and single-shot modes
+      - Bundle management system
+      - Provider configuration wizard
+      - Multi-platform support (macOS, Linux, WSL)
+    languages: [Python]
+    license: MIT
+    stars: 2816
+    readiness: alpha
+    readiness_notes: "Research demonstrator, no releases, active development. Safety systems not yet built."
+    last_updated: "2026-01-15"
+
+  - name: amplifier-core
+    url: https://github.com/microsoft/amplifier-core
+    owner: microsoft
+    description: "Ultra-thin kernel (~2,600 lines) providing core mechanisms for the modular AI agent system. Follows Linux kernel model."
+    category: core
+    type: kernel
+    key_features:
+      - Module discovery and loading system
+      - Session lifecycle management
+      - Hook system and event emission
+      - Protocol definitions (Provider, Tool, Orchestrator, ContextManager, Hook)
+      - Mount Plan configuration system
+    languages: [Python]
+    license: MIT
+    stars: 11
+    readiness: alpha
+    readiness_notes: "Stable API design philosophy, clear architecture docs, no releases."
+    last_updated: "2026-01-15"
+
+  - name: amplifier-foundation
+    url: https://github.com/microsoft/amplifier-foundation
+    owner: microsoft
+    description: "Foundational library providing bundle composition, utilities, and reference content. Enables loading, composing, and validating bundles."
+    category: core
+    type: library
+    key_features:
+      - Bundle system (load, compose, validate, resolve)
+      - "@Mention system" for namespace:path references
+      - Utilities (YAML/frontmatter I/O, deep merge, path handling, caching)
+      - Reference providers, agents, behaviors, and context files
+      - Git URL bundle support with subdirectory resolution
+    languages: [Python]
+    license: MIT
+    stars: 5
+    readiness: alpha
+    readiness_notes: "Well-documented API with examples, no releases, active feature development."
+    last_updated: "2026-01-19"
+
+  - name: amplifier-app-cli
+    url: https://github.com/microsoft/amplifier-app-cli
+    owner: microsoft
+    description: "Reference implementation of CLI interface for Amplifier. Template for custom CLI implementations."
+    category: application
+    type: cli
+    key_features:
+      - Interactive chat and single-shot modes
+      - Bundle/provider/module management commands
+      - Source management system
+      - Session persistence and resume
+      - Notification settings
+      - Shell completion support
+    languages: [Python]
+    license: MIT
+    stars: 9
+    readiness: alpha
+    readiness_notes: "Reference implementation, comprehensive docs, very active development."
+    last_updated: "2026-01-20"
+
+  - name: amplifier-module-tool-skills
+    url: https://github.com/microsoft/amplifier-module-tool-skills
+    owner: microsoft
+    description: "Module providing skill-based domain knowledge loading capability. Implements progressive disclosure knowledge system."
+    category: module
+    type: tool
+    key_features:
+      - load_skill tool for domain knowledge loading
+      - Visibility hook (skills auto-shown to agent)
+      - Multi-source skill directories support
+      - Progressive disclosure (metadata → content → references)
+    languages: [Python]
+    license: MIT
+    stars: 2
+    readiness: alpha
+    last_updated: "2026-01-13"
+
+  - name: amplifier-module-tool-filesystem
+    url: https://github.com/microsoft/amplifier-module-tool-filesystem
+    owner: microsoft
+    description: "Reference implementation for filesystem operations. Provides read, write, and edit tools."
+    category: module
+    type: tool
+    key_features:
+      - read_file tool with line numbering and pagination
+      - write_file tool with parent directory creation
+      - edit_file tool with exact string replacements
+      - Safe path configuration
+      - deny-dirs capability
+    languages: [Python]
+    license: MIT
+    stars: 2
+    readiness: alpha
+    last_updated: "2026-01-06"
+
+  - name: amplifier-module-context-simple
+    url: https://github.com/microsoft/amplifier-module-context-simple
+    owner: microsoft
+    description: "Reference implementation for conversation context management. In-memory message list with automatic compaction."
+    category: module
+    type: context
+    key_features:
+      - In-memory message list storage
+      - Automatic compaction near token limits
+      - Tool pair preservation
+      - Configurable max_messages limit
+      - Ephemeral compaction
+    languages: [Python]
+    license: MIT
+    stars: 2
+    readiness: alpha
+    last_updated: "2026-01-15"
+
+  - name: amplifier-docs
+    url: https://github.com/microsoft/amplifier-docs
+    owner: microsoft
+    description: "Documentation site for the Amplifier project. Built with MkDocs and Material theme."
+    category: documentation
+    type: docs
+    key_features:
+      - MkDocs with Material theme
+      - mkdocstrings for API documentation
+      - Getting started guides
+      - Architecture documentation
+      - Module catalog
+    languages: [Markdown, Python]
+    license: MIT
+    stars: 0
+    readiness: alpha
+    readiness_notes: "Published at microsoft.github.io/amplifier-docs"
+    last_updated: "2025-12-16"
+
+  - name: eval-recipes
+    url: https://github.com/microsoft/eval-recipes
+    owner: microsoft
+    description: "Library for evaluating AI agents with benchmarking harnesses and online evaluation recipes."
+    category: tooling
+    type: evaluation
+    key_features:
+      - Benchmarking harness for CLI agents (Docker containers)
+      - Score-based and comparison-based evaluations
+      - Online evaluation framework
+      - Agent continuation (follow-up prompts)
+      - Multi-trial evaluation for consistency
+      - HTML dashboard reporting
+    languages: [Python]
+    license: MIT
+    stars: 16
+    readiness: beta
+    readiness_notes: "Active versioned releases (v0.0.30), CI workflows, well-structured docs."
+    last_updated: "2026-01-20"
+
+# =============================================================================
+# DIRECT REPORTS - marklicata (Mark Licata)
+# =============================================================================
+marklicata:
+  
+  - name: amplifier-onboarding
+    url: https://github.com/marklicata/amplifier-onboarding
+    owner: marklicata
+    description: "Onboarding resources and documentation for the Amplifier project."
+    category: documentation
+    type: onboarding
+    key_features:
+      - Onboarding workflows
+      - Getting started guides
+    languages: [TypeScript]
+    readiness: alpha
+    last_updated: "2026-01-15"
+
+  - name: made-activity-tracker
+    url: https://github.com/marklicata/made-activity-tracker
+    owner: marklicata
+    description: "Team activity tracker for monitoring and reporting on team work activities."
+    category: tooling
+    type: productivity
+    key_features:
+      - Activity tracking
+      - Team metrics
+    languages: [Rust]
+    readiness: alpha
+    last_updated: "2025-12-31"
+
+  - name: mcp-tool-router
+    url: https://github.com/marklicata/mcp-tool-router
+    owner: marklicata
+    description: "Routes tool calls to appropriate MCP (Model Context Protocol) servers."
+    category: module
+    type: tool
+    key_features:
+      - MCP routing
+      - Tool dispatch
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2025-12-04"
+
+  - name: amplifier-module-tool-codeql
+    url: https://github.com/marklicata/amplifier-module-tool-codeql
+    owner: marklicata
+    description: "Amplifier module providing CodeQL security analysis capabilities."
+    category: module
+    type: tool
+    key_features:
+      - CodeQL integration
+      - Security scanning
+      - Code analysis
+    languages: [Python]
+    license: MIT
+    readiness: alpha
+    last_updated: "2025-11-13"
+
+  - name: amplifier-module-tool-github
+    url: https://github.com/marklicata/amplifier-module-tool-github
+    owner: marklicata
+    description: "Amplifier module for GitHub API integration and repository operations."
+    category: module
+    type: tool
+    key_features:
+      - GitHub API access
+      - Repository management
+      - Issue/PR operations
+    languages: [Python]
+    license: MIT
+    readiness: alpha
+    last_updated: "2025-12-15"
+
+  - name: amplifier-module-registry
+    url: https://github.com/marklicata/amplifier-module-registry
+    owner: marklicata
+    description: "Central registry for discovering and managing Amplifier modules."
+    category: infrastructure
+    type: registry
+    key_features:
+      - Module discovery
+      - Version management
+      - Dependency resolution
+    languages: [Python]
+    license: MIT
+    readiness: alpha
+    last_updated: "2025-12-17"
+
+  - name: amplifier-bundle-issues
+    url: https://github.com/marklicata/amplifier-bundle-issues
+    owner: marklicata
+    description: "Amplifier bundle for GitHub Issues integration and management."
+    category: bundle
+    type: integration
+    key_features:
+      - Issue tracking
+      - GitHub integration
+    languages: [Python]
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-20"
+
+  - name: amplifier-module-tool-stats
+    url: https://github.com/marklicata/amplifier-module-tool-stats
+    owner: marklicata
+    description: "Statistics and metrics collection module for Amplifier sessions."
+    category: module
+    type: tool
+    key_features:
+      - Usage statistics
+      - Performance metrics
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-13"
+
+  - name: amplifier-app-vscode
+    url: https://github.com/marklicata/amplifier-app-vscode
+    owner: marklicata
+    description: "VS Code extension for Amplifier AI agent framework."
+    category: application
+    type: ide-extension
+    key_features:
+      - VS Code integration
+      - IDE experience
+      - Agent interaction
+    languages: [TypeScript]
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-16"
+
+  - name: amplifier-module-tool-iteration-tracker
+    url: https://github.com/marklicata/amplifier-module-tool-iteration-tracker
+    owner: marklicata
+    description: "Iteration tracking module for monitoring agent work cycles."
+    category: module
+    type: tool
+    key_features:
+      - Iteration tracking
+      - Work cycle monitoring
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2025-12-10"
+
+# =============================================================================
+# DIRECT REPORTS - michaeljabbour (MJ Jabbour)
+# =============================================================================
+michaeljabbour:
+  
+  # --- Research & Intelligence ---
+  - name: amplifier-module-deepresearch
+    url: https://github.com/michaeljabbour/amplifier-module-deepresearch
+    owner: michaeljabbour
+    description: "Multi-provider deep research module - automated research with OpenAI and Anthropic."
+    category: module
+    type: tool
+    key_features:
+      - Automated web research
+      - Multi-provider support (OpenAI, Anthropic)
+      - Research synthesis
+    languages: [Python]
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-13"
+
+  # --- Memory Systems ---
+  - name: amplifier-module-tool-memory
+    url: https://github.com/michaeljabbour/amplifier-module-tool-memory
+    owner: michaeljabbour
+    description: "Persistent memory tool module - enables AI to remember facts across sessions."
+    category: module
+    type: tool
+    key_features:
+      - Cross-session memory
+      - Fact storage/retrieval
+      - Context persistence
+    languages: [Python]
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-12"
+
+  - name: amplifier-bundle-memory
+    url: https://github.com/michaeljabbour/amplifier-bundle-memory
+    owner: michaeljabbour
+    description: "Bundle for persistent memory system - observations, sessions, and context injection."
+    category: bundle
+    type: memory
+    key_features:
+      - Memory persistence
+      - Session tracking
+      - Context injection
+    readiness: alpha
+    last_updated: "2026-01-11"
+
+  - name: amplifier-module-decisionmemory
+    url: https://github.com/michaeljabbour/amplifier-module-decisionmemory
+    owner: michaeljabbour
+    description: "Decision memory tracking for Amplifier agents."
+    category: module
+    type: context
+    key_features:
+      - Decision tracking
+      - Memory persistence
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  # --- MCP Integration ---
+  - name: amplifier-module-tool-mcp
+    url: https://github.com/michaeljabbour/amplifier-module-tool-mcp
+    owner: michaeljabbour
+    description: "MCP (Model Context Protocol) integration module for Amplifier."
+    category: module
+    type: tool
+    key_features:
+      - MCP server connection
+      - Tool bridging
+      - Protocol translation
+    languages: [Python]
+    license: MIT
+    readiness: alpha
+    last_updated: "2026-01-12"
+
+  # --- Sage (Strategic Advisor) ---
+  - name: amplifier-module-tool-sage
+    url: https://github.com/michaeljabbour/amplifier-module-tool-sage
+    owner: michaeljabbour
+    description: "Strategic advisor tool - consults Gemini/OpenAI for outcome-focused guidance."
+    category: module
+    type: tool
+    key_features:
+      - Multi-model consultation
+      - Strategic planning
+      - Outcome optimization
+    languages: [Python]
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-sage
+    url: https://github.com/michaeljabbour/amplifier-bundle-sage
+    owner: michaeljabbour
+    description: "Strategic advisor bundle - enables long-running autonomous work with Gemini counsel."
+    category: bundle
+    type: strategic
+    key_features:
+      - Autonomous work sessions
+      - Gemini integration
+      - Long-running tasks
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  # --- Collaboration Suite ---
+  - name: amplifier-bundle-collaboration
+    url: https://github.com/michaeljabbour/amplifier-bundle-collaboration
+    owner: michaeljabbour
+    description: "Multi-instance AI collaboration bundle for Amplifier."
+    category: bundle
+    type: collaboration
+    key_features:
+      - Multi-agent coordination
+      - Instance collaboration
+      - Shared context
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-tool-m365
+    url: https://github.com/michaeljabbour/amplifier-module-tool-m365
+    owner: michaeljabbour
+    description: "Microsoft 365 collaboration module for Amplifier."
+    category: module
+    type: tool
+    key_features:
+      - M365 integration
+      - Teams, Outlook, SharePoint
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-20"
+
+  - name: amplifier-module-tool-slack
+    url: https://github.com/michaeljabbour/amplifier-module-tool-slack
+    owner: michaeljabbour
+    description: "Slack collaboration module for Amplifier."
+    category: module
+    type: tool
+    key_features:
+      - Slack API integration
+      - Channel messaging
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-20"
+
+  - name: amplifier-module-tool-google
+    url: https://github.com/michaeljabbour/amplifier-module-tool-google
+    owner: michaeljabbour
+    description: "Google Workspace collaboration module for Amplifier (Coming Soon)."
+    category: module
+    type: tool
+    key_features:
+      - Google Workspace integration
+    languages: [Python]
+    readiness: alpha
+    readiness_notes: "Coming Soon"
+    last_updated: "2026-01-20"
+
+  # --- Providers ---
+  - name: amplifier-module-provider-anthropic
+    url: https://github.com/michaeljabbour/amplifier-module-provider-anthropic
+    owner: michaeljabbour
+    description: "Reference implementation for an Anthropic provider for Amplifier."
+    category: module
+    type: provider
+    key_features:
+      - Claude API integration
+      - Anthropic model support
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-11"
+
+  - name: amplifier-module-provider-openai
+    url: https://github.com/michaeljabbour/amplifier-module-provider-openai
+    owner: michaeljabbour
+    description: "Reference implementation for an OpenAI provider module."
+    category: module
+    type: provider
+    key_features:
+      - OpenAI API integration
+      - GPT model support
+    languages: [Python]
+    readiness: beta
+    last_updated: "2025-12-19"
+
+  # --- Hooks (Event System) ---
+  - name: amplifier-module-hooks-streaming-ui
+    url: https://github.com/michaeljabbour/amplifier-module-hooks-streaming-ui
+    owner: michaeljabbour
+    description: "Reference implementation of a streaming UI hook module."
+    category: module
+    type: hook
+    key_features:
+      - Real-time streaming
+      - UI updates
+    languages: [Python]
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-hooks-sessionindicator
+    url: https://github.com/michaeljabbour/amplifier-module-hooks-sessionindicator
+    owner: michaeljabbour
+    description: "Real-time session activity indicator - spinner, token usage, elapsed time, stuck detection."
+    category: module
+    type: hook
+    key_features:
+      - Activity indicators
+      - Token tracking
+      - Stuck detection with Ctrl+C recovery
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-hooks-ui-bridge
+    url: https://github.com/michaeljabbour/amplifier-module-hooks-ui-bridge
+    owner: michaeljabbour
+    description: "Universal event bridge for any UI system (Textual, Tauri, Web, VS Code)."
+    category: module
+    type: hook
+    key_features:
+      - Cross-platform UI events
+      - Multiple UI framework support
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-11"
+
+  - name: amplifier-module-hooks-memory-capture
+    url: https://github.com/michaeljabbour/amplifier-module-hooks-memory-capture
+    owner: michaeljabbour
+    description: "Amplifier hook module for automatic memory capture from tool outputs."
+    category: module
+    type: hook
+    key_features:
+      - Automatic memory capture
+      - Tool output processing
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-11"
+
+  - name: amplifier-module-hooks-project-isolation
+    url: https://github.com/michaeljabbour/amplifier-module-hooks-project-isolation
+    owner: michaeljabbour
+    description: "Per-project session storage for Amplifier CLI applications."
+    category: module
+    type: hook
+    key_features:
+      - Project isolation
+      - Session storage
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2025-12-23"
+
+  # --- Tools & Utilities ---
+  - name: amplifier-module-tool-rlm
+    url: https://github.com/michaeljabbour/amplifier-module-tool-rlm
+    owner: michaeljabbour
+    description: "RLM (Recursive Language Model) tool module - enables processing of arbitrarily long contexts."
+    category: module
+    type: tool
+    key_features:
+      - Long context processing
+      - Recursive summarization
+      - Context chunking
+    languages: [Python]
+    license: MIT
+    readiness: beta
+    last_updated: "2026-01-15"
+
+  - name: amplifier-module-loop-streaming
+    url: https://github.com/michaeljabbour/amplifier-module-loop-streaming
+    owner: michaeljabbour
+    description: "Reference implementation for a streaming loop module."
+    category: module
+    type: orchestrator
+    key_features:
+      - Streaming responses
+      - Agent loop execution
+    languages: [Python]
+    readiness: beta
+    last_updated: "2025-12-25"
+
+  # --- Skills & Developer Experience ---
+  - name: claude-amplifier-skill
+    url: https://github.com/michaeljabbour/claude-amplifier-skill
+    owner: michaeljabbour
+    description: "Amplifier skill for Claude Code - delegate to Microsoft Amplifier's remote AI agents."
+    category: skill
+    type: integration
+    key_features:
+      - Claude Code integration
+      - Remote agent delegation
+      - Cross-platform AI coordination
+    languages: [Markdown, YAML]
+    readiness: alpha
+    last_updated: "2026-01-13"
+
+  - name: amplifier-modulebuilder-skill
+    url: https://github.com/michaeljabbour/amplifier-modulebuilder-skill
+    owner: michaeljabbour
+    description: "Agent Skill for building production-ready amplifier-foundation modules."
+    category: skill
+    type: developer-tools
+    key_features:
+      - Module scaffolding
+      - Best practices
+    readiness: alpha
+    last_updated: "2025-12-22"
+
+  - name: amplifier-sync
+    url: https://github.com/michaeljabbour/amplifier-sync
+    owner: michaeljabbour
+    description: "Keep all amplifier repos synced with a single command."
+    category: tooling
+    type: developer-tools
+    key_features:
+      - Multi-repo sync
+      - Development workflow
+    languages: [Shell]
+    readiness: alpha
+    last_updated: "2026-01-15"
+
+# =============================================================================
+# DIRECT REPORTS - dluc (Devis Lucato)
+# =============================================================================
+dluc:
+  
+  # --- Microsoft Leadership ---
+  - name: semantic-kernel
+    url: https://github.com/microsoft/semantic-kernel
+    owner: microsoft
+    description: "Microsoft's flagship AI orchestration SDK. Integrate LLM technology into apps across C#, Python, and Java."
+    category: sdk
+    type: orchestration
+    key_features:
+      - Multi-language SDK (C#, Python, Java)
+      - AI orchestration
+      - Plugin system
+      - Memory/RAG integration
+      - Function calling
+      - Agents framework
+    languages: [C#, Python, Java]
+    license: MIT
+    stars: 27069
+    readiness: production
+    readiness_notes: "Extensive CI, frequent releases, comprehensive docs, huge community."
+    last_updated: "2026-01-21"
+
+  - name: kernel-memory
+    url: https://github.com/microsoft/kernel-memory
+    owner: microsoft
+    description: "Research project providing a Memory solution for users, teams, and applications with RAG capabilities."
+    category: library
+    type: memory
+    key_features:
+      - Document indexing
+      - Semantic search
+      - RAG pipeline
+      - Multi-storage backends
+      - LLM integration
+    languages: [C#]
+    license: MIT
+    stars: 2135
+    readiness: beta
+    last_updated: "2025-12-18"
+
+  - name: semanticworkbench
+    url: https://github.com/microsoft/semanticworkbench
+    owner: microsoft
+    description: "Versatile tool for prototyping intelligent assistants, agents and multi-agentic systems."
+    category: application
+    type: prototyping
+    key_features:
+      - Agent prototyping
+      - Multi-agent systems
+      - Assistant development
+      - Interactive workbench
+    languages: [Python]
+    license: MIT
+    stars: 383
+    readiness: beta
+    last_updated: "2026-01-15"
+
+  # --- Personal Projects ---
+  - name: amplifier-book
+    url: https://github.com/dluc/amplifier-book
+    owner: dluc
+    description: "Documentation and learning resources for Amplifier project."
+    category: documentation
+    type: learning
+    readiness: alpha
+    last_updated: "2026-01-17"
+
+  - name: generative-pipelines
+    url: https://github.com/dluc/generative-pipelines
+    owner: dluc
+    description: "A modular, HTTP-driven orchestrator to define, practice, and refine pipelines and generative tools."
+    category: tooling
+    type: orchestration
+    key_features:
+      - Pipeline orchestration
+      - HTTP-driven workflows
+      - Generative tool composition
+    languages: [C#]
+    license: MIT
+    readiness: alpha
+    last_updated: "2025-05-21"
+
+# =============================================================================
+# BRIAN'S TEAM - bkrabach (Brian Krabach)
+# =============================================================================
+bkrabach:
+  
+  - name: amplifier-app-server
+    url: https://github.com/bkrabach/amplifier-app-server
+    owner: bkrabach
+    description: "Always-on Amplifier server runtime hosting persistent AI sessions with HTTP/WebSocket API."
+    category: application
+    type: server
+    key_features:
+      - HTTP/WebSocket API
+      - Bundle extensibility
+      - Persistent sessions
+    languages: [Python]
+    readiness: alpha
+    readiness_notes: "Recently created (Jan 2026), actively developed."
+    last_updated: "2026-01-21"
+
+  - name: amplifier-cli-tools
+    url: https://github.com/bkrabach/amplifier-cli-tools
+    owner: bkrabach
+    description: "Python CLI tools for Amplifier development workflows."
+    category: tooling
+    type: developer-tools
+    key_features:
+      - amplifier-dev command
+      - amplifier-reset command
+      - Development workflows
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-attention-firewall
+    url: https://github.com/bkrabach/amplifier-bundle-attention-firewall
+    owner: bkrabach
+    description: "AI-powered Windows notification controller - filters notifications, surfaces what matters, batches the rest."
+    category: bundle
+    type: productivity
+    key_features:
+      - Notification filtering
+      - AI-based prioritization
+      - Batching
+    readiness: alpha
+    readiness_notes: "Experimental bundle"
+    last_updated: "2026-01-21"
+
+  - name: amplifier-expert-cookbook
+    url: https://github.com/bkrabach/amplifier-expert-cookbook
+    owner: bkrabach
+    description: "Achieve state of the art with Microsoft Amplifier - best practices and expert guidance."
+    category: documentation
+    type: guides
+    key_features:
+      - Best practices
+      - Expert guidance
+      - Patterns
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: cortex
+    url: https://github.com/bkrabach/cortex
+    owner: bkrabach
+    description: "Personal AI assistant platform - manages attention, automates tasks, acts on your behalf across devices."
+    category: application
+    type: assistant
+    key_features:
+      - Multi-device support
+      - Attention management
+      - Task automation
+      - Personal AI assistant
+    readiness: alpha
+    readiness_notes: "Vision/design stage"
+    last_updated: "2026-01-21"
+
+  - name: webamp
+    url: https://github.com/bkrabach/webamp
+    owner: bkrabach
+    description: "WebGPU + Pyodide PoC for running Amplifier-style sessions with local LLM inference in the browser."
+    category: prototype
+    type: browser
+    key_features:
+      - WebGPU
+      - Pyodide
+      - Browser-based LLM
+      - Local inference
+    readiness: prototype
+    last_updated: "2026-01-21"
+
+  - name: amplifier-shadow
+    url: https://github.com/bkrabach/amplifier-shadow
+    owner: bkrabach
+    description: "Reference implementation of Shadow Workspace tools for Amplifier."
+    category: tooling
+    type: development
+    key_features:
+      - Shadow workspace patterns
+      - Isolated testing
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# BRIAN'S TEAM - robotdad (Mark Goodner)
+# =============================================================================
+robotdad:
+  
+  - name: amplifier-module-tool-mcp
+    url: https://github.com/robotdad/amplifier-module-tool-mcp
+    owner: robotdad
+    description: "MCP (Model Context Protocol) tool integration module for Amplifier."
+    category: module
+    type: tool
+    key_features:
+      - MCP protocol support
+      - Tool bridging
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-lsp-typescript
+    url: https://github.com/robotdad/amplifier-bundle-lsp-typescript
+    owner: robotdad
+    description: "TypeScript/JavaScript LSP bundle - semantic code intelligence via typescript-language-server."
+    category: bundle
+    type: development
+    key_features:
+      - LSP integration
+      - Code intelligence
+      - TypeScript support
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-ts-dev
+    url: https://github.com/robotdad/amplifier-bundle-ts-dev
+    owner: robotdad
+    description: "Comprehensive TS/JS development tools - code quality, LSP, and expert agent."
+    category: bundle
+    type: development
+    key_features:
+      - Linting
+      - LSP
+      - Expert agent patterns
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-app-voice
+    url: https://github.com/robotdad/amplifier-app-voice
+    owner: robotdad
+    description: "Voice interface application for Amplifier."
+    category: application
+    type: voice
+    key_features:
+      - Voice input/output
+      - Realtime interaction
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-provider-openai-realtime
+    url: https://github.com/robotdad/amplifier-module-provider-openai-realtime
+    owner: robotdad
+    description: "OpenAI Realtime API provider for voice interactions."
+    category: module
+    type: provider
+    key_features:
+      - OpenAI Realtime API
+      - Voice streaming
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-provider-github-copilot
+    url: https://github.com/robotdad/amplifier-module-provider-github-copilot
+    owner: robotdad
+    description: "GitHub Copilot provider with device flow OAuth."
+    category: module
+    type: provider
+    key_features:
+      - GitHub Models API
+      - OAuth device flow
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-tool-comfyui
+    url: https://github.com/robotdad/amplifier-module-tool-comfyui
+    owner: robotdad
+    description: "Image generation tool via ComfyUI."
+    category: module
+    type: tool
+    key_features:
+      - ComfyUI integration
+      - Image generation
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-deepresearch
+    url: https://github.com/robotdad/amplifier-bundle-deepresearch
+    owner: robotdad
+    description: "Deep research bundle - composes providers and tool for AI-powered research."
+    category: bundle
+    type: research
+    key_features:
+      - Provider composition
+      - Research workflows
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-beads
+    url: https://github.com/robotdad/amplifier-bundle-beads
+    owner: robotdad
+    description: "Beads integration - persistent task tracking with session linking."
+    category: bundle
+    type: productivity
+    key_features:
+      - Task persistence
+      - Session linking
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-blog-creator
+    url: https://github.com/robotdad/amplifier-bundle-blog-creator
+    owner: robotdad
+    description: "AI-powered blog creation with style-aware generation."
+    category: bundle
+    type: content
+    key_features:
+      - Blog generation
+      - Style extraction
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: lattice
+    url: https://github.com/robotdad/lattice
+    owner: robotdad
+    description: "'Lattice of Coincidences' - Multi-agent collaboration via Microsoft 365."
+    category: application
+    type: collaboration
+    key_features:
+      - M365 integration
+      - Multi-agent coordination
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# BRIAN'S TEAM - payneio (Paul Payne)
+# =============================================================================
+payneio:
+  
+  - name: amplifier-orchestration
+    url: https://github.com/payneio/amplifier-orchestration
+    owner: payneio
+    description: "Orchestration patterns and infrastructure for Amplifier sessions."
+    category: infrastructure
+    type: orchestration
+    key_features:
+      - Orchestration patterns
+      - Session management
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-foreman
+    url: https://github.com/payneio/amplifier-bundle-foreman
+    owner: payneio
+    description: "'Foreman' pattern - session orchestration where foreman interacts with user and manages worker pool."
+    category: bundle
+    type: orchestration
+    key_features:
+      - Foreman/worker pattern
+      - Multi-agent coordination
+      - Worker pool management
+    readiness: alpha
+    readiness_notes: "Just created (Jan 21)"
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-observers
+    url: https://github.com/payneio/amplifier-bundle-observers
+    owner: payneio
+    description: "Observer pattern bundle for Amplifier."
+    category: bundle
+    type: patterns
+    key_features:
+      - Event observation
+      - Reactive patterns
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-registry
+    url: https://github.com/payneio/amplifier-registry
+    owner: payneio
+    description: "Registry service for Amplifier components."
+    category: infrastructure
+    type: registry
+    key_features:
+      - Component registry
+      - Discovery service
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-orchestrator-work-coordinator
+    url: https://github.com/payneio/amplifier-module-orchestrator-work-coordinator
+    owner: payneio
+    description: "Work coordination orchestrator module."
+    category: module
+    type: orchestrator
+    key_features:
+      - Work distribution
+      - Coordination
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: lakehouse
+    url: https://github.com/payneio/lakehouse
+    owner: payneio
+    description: "Intelligent computation platform."
+    category: infrastructure
+    type: compute
+    key_features:
+      - Computation infrastructure
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# BRIAN'S TEAM - DavidKoleczek (David Koleczek)
+# =============================================================================
+DavidKoleczek:
+  
+  - name: amplifier-expert-cookbook
+    url: https://github.com/DavidKoleczek/amplifier-expert-cookbook
+    owner: DavidKoleczek
+    description: "Achieve State of the Art with Microsoft Amplifier - expert patterns and best practices."
+    category: documentation
+    type: guides
+    key_features:
+      - Expert patterns
+      - Best practices
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: agent-tui
+    url: https://github.com/DavidKoleczek/agent-tui
+    owner: DavidKoleczek
+    description: "Terminal user interface for AI agents."
+    category: application
+    type: tui
+    key_features:
+      - TUI interface
+      - Agent interaction
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: agent-core
+    url: https://github.com/DavidKoleczek/agent-core
+    owner: DavidKoleczek
+    description: "Common building blocks for creating AI agents."
+    category: library
+    type: primitives
+    key_features:
+      - Agent primitives
+      - Reusable components
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: interop-router
+    url: https://github.com/DavidKoleczek/interop-router
+    owner: DavidKoleczek
+    description: "Interoperate between AI providers using OpenAI Responses API as common interface."
+    category: library
+    type: interop
+    key_features:
+      - Provider interoperability
+      - OpenAI API compatibility
+      - Multi-provider routing
+    stars: 7
+    readiness: beta
+    readiness_notes: "Most popular repo with 7 stars - useful for multi-provider scenarios."
+    last_updated: "2026-01-21"
+
+  - name: amplifier-app-benchmarks
+    url: https://github.com/DavidKoleczek/amplifier-app-benchmarks
+    owner: DavidKoleczek
+    description: "Benchmarking application for Amplifier."
+    category: tooling
+    type: evaluation
+    key_features:
+      - Performance testing
+      - Benchmarks
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-app-session-analyzer
+    url: https://github.com/DavidKoleczek/amplifier-app-session-analyzer
+    owner: DavidKoleczek
+    description: "Session analysis tool for Amplifier."
+    category: tooling
+    type: analysis
+    key_features:
+      - Session inspection
+      - Analytics
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-tool-eval-recipes
+    url: https://github.com/DavidKoleczek/amplifier-module-tool-eval-recipes
+    owner: DavidKoleczek
+    description: "Evaluation recipes tool module."
+    category: module
+    type: tool
+    key_features:
+      - Evaluation automation
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# BRIAN'S TEAM - momuno (Mollie Munoz)
+# =============================================================================
+momuno:
+  
+  - name: doc-evergreen
+    url: https://github.com/momuno/doc-evergreen
+    owner: momuno
+    description: "AI-powered documentation that stays in sync with your code."
+    category: tooling
+    type: documentation
+    key_features:
+      - Auto-sync docs
+      - Code analysis
+      - Documentation generation
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-collection-convergent-dev
+    url: https://github.com/momuno/amplifier-collection-convergent-dev
+    owner: momuno
+    description: "Convergent development collection for Amplifier."
+    category: collection
+    type: development
+    key_features:
+      - Development workflows
+      - Convergent patterns
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# CHRIS'S TEAM - cpark4x (Chris Park)
+# =============================================================================
+cpark4x:
+  
+  - name: outcomist
+    url: https://github.com/cpark4x/outcomist
+    owner: cpark4x
+    description: "Outcome-focused productivity tool built with Amplifier framework."
+    category: application
+    type: productivity
+    key_features:
+      - Spec-driven development
+      - Amplifier integration
+      - Outcome focus
+    readiness: beta
+    readiness_notes: "Active (Jan 2026)"
+    last_updated: "2026-01-21"
+
+  - name: workspaces3
+    url: https://github.com/cpark4x/workspaces3
+    owner: cpark4x
+    description: "Autonomous AI agent for task completion - Manus competitor. Takes a prompt, delivers finished work."
+    category: application
+    type: autonomous-agent
+    key_features:
+      - CodeAct architecture
+      - Event stream memory
+      - Autonomous execution
+      - Transparent execution
+    readiness: beta
+    last_updated: "2025-11-21"
+
+  - name: remember-twelve
+    url: https://github.com/cpark4x/remember-twelve
+    owner: cpark4x
+    description: "Spec-driven product development project demonstrating methodology."
+    category: application
+    type: methodology
+    key_features:
+      - Spec-driven development patterns
+    readiness: alpha
+    last_updated: "2025-10-21"
+
+  - name: ridecast
+    url: https://github.com/cpark4x/ridecast
+    owner: cpark4x
+    description: "Turn any book/document into personalized listening experience for car rides."
+    category: application
+    type: audio
+    key_features:
+      - Spec-driven development
+      - Audio generation
+      - Document-to-audio
+    readiness: alpha
+    last_updated: "2025-10-21"
+
+  - name: deckgen
+    url: https://github.com/cpark4x/deckgen
+    owner: cpark4x
+    description: "Generate beautiful HTML presentations from context."
+    category: tooling
+    type: content
+    key_features:
+      - Presentation generation
+      - HTML output
+    readiness: beta
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# CHRIS'S TEAM - samueljklee (Samuel Lee)
+# =============================================================================
+samueljklee:
+  
+  - name: amplifier-app-vscode
+    url: https://github.com/samueljklee/amplifier-app-vscode
+    owner: samueljklee
+    description: "VS Code extension for Amplifier AI agent framework."
+    category: application
+    type: ide-extension
+    key_features:
+      - IDE integration
+      - Agent workflows
+      - VS Code support
+    languages: [TypeScript]
+    readiness: beta
+    readiness_notes: "Very active (Jan 2026) - primary IDE integration."
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-smoke-test
+    url: https://github.com/samueljklee/amplifier-bundle-smoke-test
+    owner: samueljklee
+    description: "Comprehensive smoke test bundle for Amplifier CLI."
+    category: bundle
+    type: testing
+    key_features:
+      - Testing
+      - CI/CD validation
+    readiness: beta
+    readiness_notes: "Very active (Jan 2026)"
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-provider-foundry-local
+    url: https://github.com/samueljklee/amplifier-module-provider-foundry-local
+    owner: samueljklee
+    description: "Microsoft Foundry Local provider - privacy-first AI with hardware optimization."
+    category: module
+    type: provider
+    key_features:
+      - Local LLM
+      - Hardware optimization
+      - Privacy-first
+    languages: [Python]
+    readiness: beta
+    last_updated: "2025-12-21"
+
+  - name: amplifier-module-tool-search
+    url: https://github.com/samueljklee/amplifier-module-tool-search
+    owner: samueljklee
+    description: "Search tool module reference implementation."
+    category: module
+    type: tool
+    key_features:
+      - Search integration
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-collection-amplifier-dev
+    url: https://github.com/samueljklee/amplifier-collection-amplifier-dev
+    owner: samueljklee
+    description: "Collection for developing modules, profiles, and collections with systematic thinking."
+    category: collection
+    type: development
+    key_features:
+      - Meta-development
+      - Patterns
+    readiness: beta
+    last_updated: "2025-12-21"
+
+  - name: canvas-ai
+    url: https://github.com/samueljklee/canvas-ai
+    owner: samueljklee
+    description: "Desktop app for managing workspace canvases with AI agent integration."
+    category: application
+    type: desktop
+    key_features:
+      - Desktop app
+      - Visual canvas
+      - AI integration
+    readiness: alpha
+    last_updated: "2025-11-21"
+
+  - name: local-audio-segmenter
+    url: https://github.com/samueljklee/local-audio-segmenter
+    owner: samueljklee
+    description: "Audio segmentation utility for local processing."
+    category: tooling
+    type: audio
+    key_features:
+      - Audio processing
+      - Local segmentation
+    readiness: beta
+    last_updated: "2025-12-21"
+
+  - name: amplifier-playground
+    url: https://github.com/samueljklee/amplifier-playground
+    owner: samueljklee
+    description: "Experimentation environment for Amplifier."
+    category: tooling
+    type: development
+    key_features:
+      - Testing
+      - Prototyping
+    readiness: beta
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# CHRIS'S TEAM - anderlpz (Alex Lopez)
+# =============================================================================
+anderlpz:
+  
+  - name: amplifier-bundle-discovery
+    url: https://github.com/anderlpz/amplifier-bundle-discovery
+    owner: anderlpz
+    description: "Progressive discovery and user interviewing system - structured interview patterns."
+    category: bundle
+    type: research
+    key_features:
+      - User research
+      - Interviewing AI
+      - Progressive discovery
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-design-intelligence
+    url: https://github.com/anderlpz/amplifier-bundle-design-intelligence
+    owner: anderlpz
+    description: "Design intelligence bundle for design-focused workflows."
+    category: bundle
+    type: design
+    key_features:
+      - Design systems
+      - Design patterns
+      - Design workflows
+    readiness: beta
+    readiness_notes: "Very active (Jan 2026)"
+    last_updated: "2026-01-21"
+
+  - name: discovery-live-demo
+    url: https://github.com/anderlpz/discovery-live-demo
+    owner: anderlpz
+    description: "Live interactive demo - chat with Discovery Bundle's progressive interviewing agent."
+    category: application
+    type: demo
+    key_features:
+      - Live demo
+      - Interactive
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-app-vision
+    url: https://github.com/anderlpz/amplifier-app-vision
+    owner: anderlpz
+    description: "GPT-4 Vision image analysis app with CLI and web interface."
+    category: application
+    type: vision
+    key_features:
+      - Image analysis
+      - Vision AI
+      - CLI and web
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+  - name: amplifier-embody
+    url: https://github.com/anderlpz/amplifier-embody
+    owner: anderlpz
+    description: "Amplifier-powered design system exploration tool helping designers form and refine perspective."
+    category: tooling
+    type: design
+    key_features:
+      - Design systems
+      - Exploration
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+  - name: withamplifier
+    url: https://github.com/anderlpz/withamplifier
+    owner: anderlpz
+    description: "withamplifier.com - Amplifier's approachable public presence and marketing site."
+    category: website
+    type: marketing
+    key_features:
+      - Marketing
+      - Public website
+    readiness: beta
+    readiness_notes: "Very active (Jan 2026)"
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# CHRIS'S TEAM - johannao76 (Johanna Hawkins)
+# =============================================================================
+johannao76:
+  
+  - name: recipe-executor
+    url: https://github.com/johannao76/recipe-executor
+    owner: johannao76
+    description: "Recipe execution framework for Amplifier workflow automation."
+    category: tooling
+    type: workflow
+    key_features:
+      - Workflow execution
+      - Recipes
+    readiness: alpha
+    readiness_notes: "Stale (Apr 2025)"
+    last_updated: "2025-04-21"
+
+# =============================================================================
+# CHRIS'S TEAM - kenotron-ms (Ken Chau)
+# =============================================================================
+kenotron_ms:
+  
+  - name: amplifier-presentation
+    url: https://github.com/kenotron-ms/amplifier-presentation
+    owner: kenotron-ms
+    description: "Amplifier Framework Overview - Documentation and Interactive Slide Deck."
+    category: documentation
+    type: presentation
+    key_features:
+      - Presentations
+      - Documentation
+    readiness: beta
+    last_updated: "2025-12-21"
+
+  - name: amplifier-setup
+    url: https://github.com/kenotron-ms/amplifier-setup
+    owner: kenotron-ms
+    description: "Setup script to get Amplifier configured quickly."
+    category: tooling
+    type: onboarding
+    key_features:
+      - Installation
+      - Onboarding
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+  - name: amplifier-git-workflow
+    url: https://github.com/kenotron-ms/amplifier-git-workflow
+    owner: kenotron-ms
+    description: "Automated git workflow for PR submission and monitoring - Amplifier bundle."
+    category: bundle
+    type: git
+    key_features:
+      - Git automation
+      - PR workflows
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: awesome-amplifier
+    url: https://github.com/kenotron-ms/awesome-amplifier
+    owner: kenotron-ms
+    description: "Curated list of awesome Amplifier bundles, behaviors, agents, tools, and resources."
+    category: documentation
+    type: curation
+    key_features:
+      - Resource curation
+      - Ecosystem index
+    readiness: beta
+    readiness_notes: "Very active (Jan 2026)"
+    last_updated: "2026-01-21"
+
+  - name: pr-monitor
+    url: https://github.com/kenotron-ms/pr-monitor
+    owner: kenotron-ms
+    description: "GitHub PR monitoring dashboard - see checks, reviews, blockers at a glance."
+    category: tooling
+    type: git
+    key_features:
+      - PR monitoring
+      - Dashboard
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+  - name: standup-helper
+    url: https://github.com/kenotron-ms/standup-helper
+    owner: kenotron-ms
+    description: "Team standup helper tool for tracking GitHub activity."
+    category: tooling
+    type: productivity
+    key_features:
+      - Team coordination
+      - Activity tracking
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+  - name: cloud-dev-env
+    url: https://github.com/kenotron-ms/cloud-dev-env
+    owner: kenotron-ms
+    description: "Browser-based cloud dev environment with E2B sandboxes and Cloudflare R2 storage."
+    category: tooling
+    type: development
+    key_features:
+      - Cloud IDE
+      - Sandboxes
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+# =============================================================================
+# CHRIS'S TEAM - sadlilas (Salil Das)
+# =============================================================================
+sadlilas:
+  
+  - name: amplifier-module-storage-localfirst
+    url: https://github.com/sadlilas/amplifier-module-storage-localfirst
+    owner: sadlilas
+    description: "SQLite-based local-first storage module for Microsoft Amplifier."
+    category: module
+    type: storage
+    key_features:
+      - SQLite
+      - Offline-first
+      - Data persistence
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+  - name: amplifier-module-util-context
+    url: https://github.com/sadlilas/amplifier-module-util-context
+    owner: sadlilas
+    description: "Context window management utilities for Microsoft Amplifier."
+    category: module
+    type: utility
+    key_features:
+      - Context optimization
+      - Token management
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2025-12-21"
+
+  - name: amplifier-module-tool-stt-whispercpp
+    url: https://github.com/sadlilas/amplifier-module-tool-stt-whispercpp
+    owner: sadlilas
+    description: "Local speech-to-text tool using whisper.cpp."
+    category: module
+    type: tool
+    key_features:
+      - STT
+      - whisper.cpp
+      - Voice input
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-cli-tools
+    url: https://github.com/sadlilas/amplifier-cli-tools
+    owner: sadlilas
+    description: "Python CLI tools for Amplifier development workflows (amplifier-dev, amplifier-reset)."
+    category: tooling
+    type: developer-tools
+    key_features:
+      - Developer tooling
+      - Python CLI
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# RAMPARTE (Sam Schillace) - 20 Repositories
+# =============================================================================
+ramparte:
+
+  # --- Bundles ---
+  - name: amplifier-bundle-beads-superpowers
+    url: https://github.com/ramparte/amplifier-bundle-beads-superpowers
+    owner: ramparte
+    description: "Context-pressure relief through beads task tracking and subagent dispatch. Combines Steve Yegge's Beads with Jesse Vincent's Superpowers TDD workflows."
+    category: bundle
+    type: orchestration
+    key_features:
+      - Git-backed task tracking (Beads)
+      - TDD workflows (Superpowers)
+      - Fresh-agent-per-task execution
+      - Dependency-aware task management
+    languages: [Python]
+    stars: 1
+    readiness: beta
+    last_updated: "2026-01-15"
+
+  - name: amplifier-bundle-deliberate-development
+    url: https://github.com/ramparte/amplifier-bundle-deliberate-development
+    owner: ramparte
+    description: "Decomposition-first planning and specification-based implementation. 4-5 planning turns before code."
+    category: bundle
+    type: methodology
+    key_features:
+      - deliberate-planner agent
+      - deliberate-implementer agent
+      - deliberate-reviewer agent
+      - Planning mode behaviors
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-20"
+
+  - name: amplifier-bundle-html-tools
+    url: https://github.com/ramparte/amplifier-bundle-html-tools
+    owner: ramparte
+    description: "Build single-file HTML tools using Simon Willison's proven patterns."
+    category: bundle
+    type: development
+    key_features:
+      - html-tool-builder agent
+      - CDN-loaded dependencies
+      - LocalStorage for secrets
+      - CORS-friendly API patterns
+    languages: [HTML]
+    readiness: production
+    last_updated: "2026-01-06"
+
+  - name: amplifier-bundle-m365-collab
+    url: https://github.com/ramparte/amplifier-bundle-m365-collab
+    owner: ramparte
+    description: "Agent-to-agent communication via SharePoint for multi-agent orchestration."
+    category: bundle
+    type: collaboration
+    key_features:
+      - Agent personas (researcher, implementer, reviewer, coordinator)
+      - Task dispatch via SharePoint
+      - Session binding to agent identities
+      - Message polling system
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-bundle-metacog-code-quality
+    url: https://github.com/ramparte/amplifier-bundle-metacog-code-quality
+    owner: ramparte
+    description: "Comprehensive code quality analysis with specialized agents."
+    category: bundle
+    type: quality
+    key_features:
+      - static-analyzer (complexity, duplication)
+      - security-scanner (injection, secrets, vulnerabilities)
+      - performance-analyzer (bottlenecks, N+1 queries)
+      - documentation-checker
+      - quality-aggregator (unified reports, scoring)
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-06"
+
+  - name: amplifier-bundle-metacognition
+    url: https://github.com/ramparte/amplifier-bundle-metacognition
+    owner: ramparte
+    description: "Metacognitive agents inspired by Poetiq's ARC-AGI approach."
+    category: bundle
+    type: methodology
+    key_features:
+      - complexity-assessor (1-10 scale)
+      - iterative-refiner (soft scoring)
+      - solution-evaluator
+      - ensemble-coordinator
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-06"
+
+  - name: amplifier-bundle-superpowers
+    url: https://github.com/ramparte/amplifier-bundle-superpowers
+    owner: ramparte
+    description: "Import-based integration of obra/superpowers TDD workflow."
+    category: bundle
+    type: development
+    key_features:
+      - Git submodule of obra/superpowers
+      - design-refiner, plan-writer, tdd-enforcer
+      - subagent-orchestrator, code-reviewer
+      - branch-finalizer, debugger, worktree-manager
+    languages: [Shell]
+    readiness: production
+    last_updated: "2026-01-06"
+
+  - name: amplifier-collection-dev-memory
+    url: https://github.com/ramparte/amplifier-collection-dev-memory
+    owner: ramparte
+    description: "Persistent memory system maintaining context across all sessions."
+    category: collection
+    type: memory
+    key_features:
+      - Natural language interface
+      - Token-efficient hybrid architecture
+      - Local YAML storage
+      - work-log tracking
+    readiness: production
+    last_updated: "2026-01-16"
+
+  # --- Infrastructure ---
+  - name: amplifier-activity-tracker
+    url: https://github.com/ramparte/amplifier-activity-tracker
+    owner: ramparte
+    description: "Intelligent activity tracking with duplicate detection for developers."
+    category: tooling
+    type: productivity
+    key_features:
+      - Automatic duplicate work detection
+      - Files new ideas during development
+      - Cross-repo coordination
+      - LLM + embeddings for accuracy
+    languages: [Python]
+    stars: 1
+    readiness: alpha
+    last_updated: "2026-01-15"
+
+  - name: amplifier-mcp-server
+    url: https://github.com/ramparte/amplifier-mcp-server
+    owner: ramparte
+    description: "Connect Amplifier to GitHub Copilot via MCP."
+    category: infrastructure
+    type: integration
+    key_features:
+      - MCP server for VS Code Copilot
+      - Multi-file operations
+      - Shell command execution
+      - Web research capabilities
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-13"
+
+  - name: amplifier-module-tool-workflow
+    url: https://github.com/ramparte/amplifier-module-tool-workflow
+    owner: ramparte
+    description: "Declarative workflow orchestration for Amplifier."
+    category: module
+    type: tool
+    key_features:
+      - YAML workflow definitions
+      - Agent delegation
+      - Conditional routing
+      - State persistence / checkpointing
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2025-11-17"
+
+  - name: amplifier-tutorial
+    url: https://github.com/ramparte/amplifier-tutorial
+    owner: ramparte
+    description: "Documentation and tutorial site for Amplifier framework."
+    category: documentation
+    type: learning
+    key_features:
+      - GitHub Pages hosted
+      - MkDocs-based
+      - Core concepts, tools, bundles, skills
+      - Developer setup guides
+    stars: 1
+    readiness: production
+    last_updated: "2026-01-14"
+
+  - name: nextCompaction
+    url: https://github.com/ramparte/nextCompaction
+    owner: ramparte
+    description: "Intelligent context compaction preserving critical information."
+    category: module
+    type: context
+    key_features:
+      - Backwards understanding strategy
+      - System message preservation
+      - Artifact extraction to files
+      - LLM summarization
+    languages: [Python]
+    readiness: beta
+    last_updated: "2025-12-16"
+
+  # --- Tools ---
+  - name: amplifier-stories
+    url: https://github.com/ramparte/amplifier-stories
+    owner: ramparte
+    description: "Autonomous storytelling engine - transforms dev activity into content."
+    category: tooling
+    type: content
+    key_features:
+      - 5 content formats (HTML, PowerPoint, Excel, Word, PDF)
+      - 10 specialist agents
+      - 4 automated workflows
+      - 14 existing HTML presentation decks
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-voice-bridge
+    url: https://github.com/ramparte/amplifier-voice-bridge
+    owner: ramparte
+    description: "Remote voice control for Amplifier via iPhone/CarPlay."
+    category: application
+    type: voice
+    key_features:
+      - Siri integration
+      - Tailscale VPN
+      - FastAPI server
+      - Multi-session support
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-20"
+
+  - name: amplifier-toolkit
+    url: https://github.com/ramparte/amplifier-toolkit
+    owner: ramparte
+    description: "Library of reusable Amplifier components (bundles, recipes, scripts)."
+    category: collection
+    type: library
+    key_features:
+      - deliberate-development bundle
+      - looper bundle (supervised work loop)
+      - m365-collab bundle
+      - session-manager script
+      - voice-bridge tool
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: new-user-assistant
+    url: https://github.com/ramparte/new-user-assistant
+    owner: ramparte
+    description: "Careful AI assistant bundle for new Amplifier users."
+    category: bundle
+    type: onboarding
+    key_features:
+      - Asks before acting
+      - Shows plans before execution
+      - Verifies work with evidence
+      - guided-start recipe with approval gates
+    readiness: production
+    last_updated: "2026-01-08"
+
+  # --- Productivity ---
+  - name: teams-transcript-tool
+    url: https://github.com/ramparte/teams-transcript-tool
+    owner: ramparte
+    description: "Convert MS Teams meeting transcripts (VTT/DOCX) to Markdown and push to GitHub."
+    category: tooling
+    type: productivity
+    key_features:
+      - VTT and DOCX input
+      - Markdown output
+      - GitHub integration
+    languages: [Python]
+    stars: 1
+    readiness: beta
+    last_updated: "2026-01-14"
+
+  - name: deployotron
+    url: https://github.com/ramparte/deployotron
+    owner: ramparte
+    description: "Desktop deployment tool for AWS ECS with AI assistance."
+    category: application
+    type: deployment
+    key_features:
+      - Tauri desktop app (Rust + React)
+      - One-click AWS ECS deployments
+      - Claude AI integration
+      - Terraform config generation
+    languages: [Rust]
+    readiness: alpha
+    last_updated: "2025-12-16"
+
+# =============================================================================
+# ADDITIONAL BKRABACH REPOS (Expanded from 7 to 25)
+# =============================================================================
+bkrabach_additional:
+
+  - name: claude-trace-viewer
+    url: https://github.com/bkrabach/claude-trace-viewer
+    owner: bkrabach
+    description: "Alternate viewer for @mariozechner/claude-trace with sub-agent detection."
+    category: tooling
+    type: visualization
+    key_features:
+      - Sub-agent detection
+      - Timeline visualization
+      - Browser devtools-style UI
+    languages: [JavaScript]
+    stars: 11
+    readiness: production
+    last_updated: "2026-01-09"
+
+  - name: ai-code-project-template
+    url: https://github.com/bkrabach/ai-code-project-template
+    owner: bkrabach
+    description: "Project template for coding with AI assistants."
+    category: tooling
+    type: template
+    key_features:
+      - Desktop notifications
+      - Automated quality checks
+      - Philosophy-driven dev
+      - Smart context management
+    languages: [Python]
+    stars: 9
+    readiness: production
+    last_updated: "2025-12-18"
+
+  - name: bbs-ansi-art
+    url: https://github.com/bkrabach/bbs-ansi-art
+    owner: bkrabach
+    description: "Python library for ANSI art - create, view, convert BBS-era artwork."
+    category: library
+    type: creative
+    key_features:
+      - Load/parse .ans/.asc/.diz
+      - SAUCE metadata
+      - Render to terminal/HTML/PNG
+      - LLM integration
+    languages: [Python]
+    readiness: production
+    last_updated: "2026-01-05"
+
+  - name: git-collector
+    url: https://github.com/bkrabach/git-collector
+    owner: bkrabach
+    description: "CLI tool to browse GitHub repos and collect contents into Markdown."
+    category: tooling
+    type: developer-tools
+    key_features:
+      - Interactive repo browser
+      - File preview
+      - Structured Markdown output
+    languages: [JavaScript]
+    stars: 1
+    readiness: production
+    last_updated: "2025-07-18"
+
+  - name: unity-rap-vs-ai
+    url: https://github.com/bkrabach/unity-rap-vs-ai
+    owner: bkrabach
+    description: "RapVS.AI - Human vs AI rap battle app (Black Tech Week 2023)."
+    category: application
+    type: creative
+    key_features:
+      - GPT-powered rap generation
+      - Semantic Kernel integration
+      - Azure AI Speech
+    languages: [C#]
+    stars: 2
+    readiness: production
+    last_updated: "2024-12-11"
+
+# =============================================================================
+# ADDITIONAL ROBOTDAD REPOS (Expanded from 15 to 117)
+# =============================================================================
+robotdad_additional:
+
+  - name: vclinux
+    url: https://github.com/robotdad/vclinux
+    owner: robotdad
+    description: "Visual C++ for Linux scripts - industry standard cross-compile."
+    category: tooling
+    type: embedded
+    languages: [Shell]
+    stars: 138
+    readiness: production
+    last_updated: "2025-10-21"
+
+  - name: LinuxCrossCompile
+    url: https://github.com/robotdad/LinuxCrossCompile
+    owner: robotdad
+    description: "Widely-used ARM cross-compile examples."
+    category: tooling
+    type: embedded
+    languages: [C++]
+    stars: 22
+    readiness: production
+    last_updated: "2025-10-21"
+
+  - name: piconotes
+    url: https://github.com/robotdad/piconotes
+    owner: robotdad
+    description: "Raspberry Pi Pico + VS Code development guide."
+    category: documentation
+    type: embedded
+    stars: 22
+    readiness: production
+    last_updated: "2025-10-21"
+
+  - name: findfaces
+    url: https://github.com/robotdad/findfaces
+    owner: robotdad
+    description: "C++/OpenCV face detection REST API."
+    category: application
+    type: vision
+    languages: [C++]
+    stars: 20
+    readiness: production
+    last_updated: "2025-10-21"
+
+  - name: lattice
+    url: https://github.com/robotdad/lattice
+    owner: robotdad
+    description: "'Lattice of Coincidences' - Multi-agent collaboration via M365."
+    category: application
+    type: collaboration
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: amplifier-hooks-notifications
+    url: https://github.com/robotdad/amplifier-hooks-notifications
+    owner: robotdad
+    description: "Push notifications via ntfy.sh for Amplifier."
+    category: module
+    type: hook
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-image-generation
+    url: https://github.com/robotdad/amplifier-module-image-generation
+    owner: robotdad
+    description: "Image generation module for Amplifier."
+    category: module
+    type: tool
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-tool-whisper
+    url: https://github.com/robotdad/amplifier-module-tool-whisper
+    owner: robotdad
+    description: "Whisper transcription tool for Amplifier."
+    category: module
+    type: tool
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: amplifier-module-tool-youtube-dl
+    url: https://github.com/robotdad/amplifier-module-tool-youtube-dl
+    owner: robotdad
+    description: "YouTube download tool for Amplifier."
+    category: module
+    type: tool
+    languages: [Python]
+    readiness: beta
+    last_updated: "2026-01-21"
+
+  - name: podcastly
+    url: https://github.com/robotdad/podcastly
+    owner: robotdad
+    description: "Podcast generator from documents."
+    category: application
+    type: audio
+    languages: [Python]
+    stars: 1
+    readiness: beta
+    last_updated: "2025-05-21"
+
+  - name: persona-studio
+    url: https://github.com/robotdad/persona-studio
+    owner: robotdad
+    description: "Portfolio images from persona descriptions."
+    category: application
+    type: creative
+    languages: [TypeScript]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# ADDITIONAL PAYNEIO REPOS (Expanded from 7 to 73)
+# =============================================================================
+payneio_additional:
+
+  - name: lakehouse
+    url: https://github.com/payneio/lakehouse
+    owner: payneio
+    description: "Intelligent computation platform."
+    category: infrastructure
+    type: compute
+    languages: [Python]
+    stars: 1
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: agentkit
+    url: https://github.com/payneio/agentkit
+    owner: payneio
+    description: "Go-based agent framework toolkit."
+    category: library
+    type: agent
+    languages: [Go]
+    readiness: alpha
+    last_updated: "2025-03-21"
+
+  - name: enom-ddns
+    url: https://github.com/payneio/enom-ddns
+    owner: payneio
+    description: "Dynamic DNS for Enom domains."
+    category: tooling
+    type: infrastructure
+    languages: [Go]
+    stars: 4
+    readiness: production
+    last_updated: "2024-12-21"
+
+  - name: initiates
+    url: https://github.com/payneio/initiates
+    owner: payneio
+    description: "Project 2025 analysis (ideological reverse engineering)."
+    category: application
+    type: research
+    stars: 1
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# ADDITIONAL DAVIDKOLECZEK REPOS (Expanded)
+# =============================================================================
+DavidKoleczek_additional:
+
+  - name: human_marl
+    url: https://github.com/DavidKoleczek/human_marl
+    owner: DavidKoleczek
+    description: "Human-in-the-loop multi-agent reinforcement learning research."
+    category: research
+    type: ml
+    languages: [Python]
+    stars: 13
+    readiness: production
+    last_updated: "2025-02-21"
+
+  - name: agent-core
+    url: https://github.com/DavidKoleczek/agent-core
+    owner: DavidKoleczek
+    description: "Common building blocks for creating AI agents."
+    category: library
+    type: primitives
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+  - name: agent-tui
+    url: https://github.com/DavidKoleczek/agent-tui
+    owner: DavidKoleczek
+    description: "Terminal user interface for AI agents."
+    category: application
+    type: tui
+    languages: [Python]
+    readiness: alpha
+    last_updated: "2026-01-21"
+
+# =============================================================================
+# SUMMARY STATISTICS (UPDATED)
+# =============================================================================
+summary:
+  total_projects_cataloged: 250+
+  
+  by_category:
+    core: 4
+    module: 65
+    bundle: 35
+    application: 25
+    tooling: 30
+    documentation: 10
+    infrastructure: 10
+    collection: 5
+    research: 5
+    library: 8
+    other: 15
+  
+  by_type:
+    tool: 35
+    provider: 12
+    hook: 15
+    context: 8
+    orchestrator: 8
+    storage: 3
+    memory: 6
+    voice: 4
+    embedded: 10
+    creative: 5
+    
+  by_readiness:
+    production: 15
+    beta: 60
+    alpha: 150
+    prototype: 10
+    
+  most_active_contributors:
+    - robotdad: "117 repos - Embedded systems + Amplifier ecosystem leader"
+    - dluc: "98 repos (129 stars) - AI ecosystem pioneer"
+    - payneio: "73 repos - Orchestration patterns specialist"
+    - michaeljabbour: "58 repos - Memory, collaboration, hooks"
+    - momuno: "32 repos - Documentation focus"
+    - bkrabach: "25 repos - Server, apps, creative tools"
+    - ramparte: "20 repos - Bundles, methodology, toolkits"
+    - samueljklee: "20+ repos - VS Code, core infrastructure"
+    - kenotron: "100+ repos - Build tools, DevOps"
+    - cpark4x: "17 repos - Spec-driven, autonomous agents"
+    - marklicata: "15 repos - Modules, registries"
+    - anderlpz: "11 repos - Design intelligence"
+    
+  key_capability_gaps:
+    - "Database interaction tools (SQL, NoSQL)"
+    - "Cloud resource management (AWS, Azure, GCP)"
+    - "Container/Kubernetes orchestration"
+    - "CI/CD pipeline management"
+    - "Mobile development support"
+    - "Data science / ML workflows"
+    - "Real-time monitoring dashboards"
+    - "Formal verification tools"
